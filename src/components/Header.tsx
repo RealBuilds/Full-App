@@ -46,6 +46,7 @@ export const Header = () => {
                   }`
                 }
               >
+                <Target className="w-4 h-4 mr-2" />
                 {item.label}
               </NavLink>
             ))}
@@ -123,6 +124,7 @@ export const Header = () => {
                       }`
                     }
                   >
+                    <Target className="w-4 h-4 mr-2" />
                     {item.label}
                   </NavLink>
                 ))}
