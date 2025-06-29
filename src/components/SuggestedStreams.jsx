@@ -50,44 +50,92 @@ const suggestedStreams = [
     viewers: '4.2k',
     color: 'bg-red-500'
   },
+  { 
+    name: 'Emma Davis', 
+    title: 'League of Legends', 
+    avatar: null, 
+    live: true, 
+    viewers: '2.7k',
+    color: 'bg-indigo-500'
+  },
+  { 
+    name: 'Jake Wilson', 
+    title: 'Fortnite', 
+    avatar: null, 
+    live: false, 
+    viewers: '1.5k',
+    color: 'bg-yellow-500'
+  },
+  { 
+    name: 'Lisa Park', 
+    title: 'Overwatch 2', 
+    avatar: null, 
+    live: true, 
+    viewers: '3.1k',
+    color: 'bg-teal-500'
+  },
+  { 
+    name: 'David Brown', 
+    title: 'Apex Legends', 
+    avatar: null, 
+    live: true, 
+    viewers: '2.9k',
+    color: 'bg-cyan-500'
+  },
+  { 
+    name: 'Maria Garcia', 
+    title: 'PUBG', 
+    avatar: null, 
+    live: false, 
+    viewers: '1.3k',
+    color: 'bg-lime-500'
+  },
+  { 
+    name: 'Tom Anderson', 
+    title: 'CS:GO', 
+    avatar: null, 
+    live: true, 
+    viewers: '5.1k',
+    color: 'bg-amber-500'
+  },
 ];
 
 export default function SuggestedStreams() {
   return (
-    <aside className="w-60 bg-white border-r border-gray-200 flex-shrink-0 overflow-y-auto">
+    <aside className="w-80 bg-gray-800 border-r border-gray-700 flex-shrink-0 overflow-y-auto">
       <div className="p-6">
-        <h3 className="text-gray-900 font-bold text-lg mb-6">Recommended Streams</h3>
-        <div className="space-y-4">
+        <h3 className="text-white font-bold text-2xl mb-6">Recommended</h3>
+        <div className="space-y-3">
           {suggestedStreams.map((stream) => (
             <div 
               key={stream.name} 
-              className="bg-white rounded-lg p-3 hover:bg-gray-50 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md border border-gray-100"
+              className="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 cursor-pointer transition-all duration-200 hover:shadow-lg border border-gray-600 hover:border-gray-500"
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <div className="relative">
                   {stream.avatar ? (
                     <img 
                       src={stream.avatar} 
                       alt={stream.name} 
-                      className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
+                      className="w-14 h-14 rounded-full object-cover border-2 border-gray-500"
                     />
                   ) : (
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm ${stream.color}`}>
+                    <div className={`w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg ${stream.color}`}>
                       {stream.name.split(' ').map(n => n[0]).join('')}
                     </div>
                   )}
                   {stream.live && (
-                    <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold flex items-center shadow-sm">
+                    <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold flex items-center shadow-lg">
                       <Dot className="w-2 h-2 mr-1 animate-pulse" />
                       LIVE
                     </div>
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-gray-900 font-bold text-sm mb-1 truncate">{stream.title}</div>
-                  <div className="text-gray-600 text-xs mb-1 truncate">{stream.name}</div>
-                  <div className="flex items-center text-gray-500 text-xs">
-                    <Eye className="w-3 h-3 mr-1" />
+                  <div className="text-white font-bold text-base mb-1 truncate">{stream.title}</div>
+                  <div className="text-gray-300 text-sm mb-2 truncate">{stream.name}</div>
+                  <div className="flex items-center text-gray-400 text-sm">
+                    <Eye className="w-4 h-4 mr-1" />
                     {stream.viewers}
                   </div>
                 </div>
