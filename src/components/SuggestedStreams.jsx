@@ -1,91 +1,93 @@
 import React from 'react';
-import { Eye } from 'lucide-react';
+import { Eye, Home, Compass, Users } from 'lucide-react';
 
 export default function SuggestedStreams() {
+  const navItems = [
+    { label: 'Home', icon: <Home className="w-5 h-5 mr-2" />, active: true },
+    { label: 'Browse', icon: <Compass className="w-5 h-5 mr-2" />, active: false },
+    { label: 'Following', icon: <Users className="w-5 h-5 mr-2" />, active: false },
+  ];
+
   const suggestedStreams = [
     {
       id: 1,
       streamer: "Sofia Garcia",
       game: "Soccer Skills Masterclass",
       viewers: "1.2k",
-      avatar: "/profile-sofia-garcia.jpg",
-      thumbnail: "/soccer-skills-masterclass.jpg"
+      avatar: "/profile-sofia-garcia.jpg"
     },
     {
       id: 2,
       streamer: "Hollis Robertson",
       game: "Squash Training Session",
       viewers: "856",
-      avatar: "/profile-hollis-robertson.jpg",
-      thumbnail: "/squash-hollis-robertson.jpg"
+      avatar: "/profile-hollis-robertson.jpg"
     },
     {
       id: 3,
       streamer: "Cory Williams",
       game: "Basketball Morning Shootaround",
       viewers: "2.1k",
-      avatar: "/profile-cory-williams.jpg",
-      thumbnail: "/basketball-morning-shootaround.jpg"
+      avatar: "/profile-cory-williams.jpg"
     },
     {
       id: 4,
       streamer: "Real Madrid",
       game: "2024-25 Season Highlights",
       viewers: "5.7k",
-      avatar: "/real-madrid-2024-25.jpg",
-      thumbnail: "/real-madrid-2024-25.jpg"
+      avatar: "/real-madrid-2024-25.jpg"
     },
     {
       id: 5,
       streamer: "NBA Highlights",
       game: "Best Plays of the Week",
       viewers: "3.2k",
-      avatar: "/profile-cory-williams.jpg",
-      thumbnail: "/basketball-morning-shootaround.jpg"
+      avatar: "/profile-cory-williams.jpg"
     },
     {
       id: 6,
       streamer: "Premier League",
       game: "Match Day Coverage",
       viewers: "4.1k",
-      avatar: "/real-madrid-2024-25.jpg",
-      thumbnail: "/soccer-skills-masterclass.jpg"
+      avatar: "/real-madrid-2024-25.jpg"
     }
   ];
 
   return (
-    <div className="w-full bg-white border border-gray-200 rounded-lg shadow-lg">
-      <div className="p-4">
-        <h3 className="text-black font-bold text-lg mb-4">Recommended</h3>
-        <div className="space-y-3">
+    <div className="w-full h-full flex flex-col">
+      {/* Vertical Nav */}
+      <nav className="flex flex-col gap-2 py-6 px-4 border-b border-gray-200 mb-2">
+        {navItems.map((item) => (
+          <button
+            key={item.label}
+            className={`flex items-center px-3 py-2 rounded-lg font-semibold text-sm transition-colors duration-150 ${item.active ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-50'}`}
+          >
+            {item.icon}
+            {item.label}
+          </button>
+        ))}
+      </nav>
+      {/* Recommended Streams */}
+      <div className="flex-1 overflow-y-auto px-4 pb-4">
+        <h3 className="text-black font-bold text-lg mb-3 mt-2">Recommended</h3>
+        <div className="space-y-2">
           {suggestedStreams.map((stream) => (
-            <div key={stream.id} className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-all duration-200 cursor-pointer border border-gray-200 shadow-sm hover:shadow-md">
-              <div className="flex items-start gap-3">
-                <div className="relative flex-shrink-0">
-                  <img 
-                    src={stream.thumbnail} 
-                    alt={stream.game}
-                    className="w-16 h-10 rounded-md object-cover shadow-sm"
-                  />
-                  <div className="absolute top-1 left-1 bg-red-600 text-white text-xs px-1 py-0.5 rounded font-bold">
-                    LIVE
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <img 
-                      src={stream.avatar} 
-                      alt={stream.streamer}
-                      className="w-4 h-4 rounded-full object-cover"
-                    />
-                    <span className="text-black font-semibold text-xs truncate">{stream.streamer}</span>
-                  </div>
-                  <div className="text-gray-700 text-xs mb-1 truncate">{stream.game}</div>
-                  <div className="flex items-center text-gray-500 text-xs">
-                    <Eye className="w-3 h-3 mr-1" />
-                    {stream.viewers}
-                  </div>
-                </div>
+            <div key={stream.id} className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-gray-50 transition cursor-pointer">
+              <img
+                src={stream.avatar}
+                alt={stream.streamer}
+                className="w-8 h-8 rounded-full object-cover border border-gray-200"
+              />
+              <div className="flex-1 min-w-0">
+                <div className="text-black font-semibold text-sm truncate">{stream.streamer}</div>
+                <div className="text-gray-600 text-xs truncate">{stream.game}</div>
+              </div>
+              <div className="flex flex-col items-end">
+                <span className="flex items-center text-gray-500 text-xs">
+                  <Eye className="w-3 h-3 mr-1" />
+                  {stream.viewers}
+                </span>
+                <span className="bg-red-600 text-white text-[10px] px-1 py-0.5 rounded font-bold mt-1">LIVE</span>
               </div>
             </div>
           ))}
