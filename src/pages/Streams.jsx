@@ -6,7 +6,7 @@ import { Eye, Star } from 'lucide-react';
 
 export default function Streams() {
   return (
-    <div className="flex h-[calc(100vh-80px)] w-full max-w-[1600px] mx-auto">
+    <div className="flex h-[calc(100vh-80px)] w-full">
       {/* Left Sidebar - Navigation + Recommended Streams */}
       <aside className="w-56 max-w-[220px] h-full flex-shrink-0 flex flex-col overflow-y-auto border-r border-gray-200 bg-white">
         <SuggestedStreams />
