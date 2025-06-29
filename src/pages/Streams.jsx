@@ -2,31 +2,70 @@ import React from 'react';
 import SuggestedStreams from '../components/SuggestedStreams';
 import StreamPlayer from '../components/VideoPlayerArea';
 import ChatBox from '../components/ChatBox';
+import { Eye, Star } from 'lucide-react';
 
 export default function Streams() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Main Layout Container - Kick-style */}
-      <div className="flex justify-center gap-8 p-4 lg:p-8 max-w-[1600px] mx-auto">
-        {/* Left Sidebar - Recommended Streams */}
-        <div className="w-56 max-w-[220px] flex-shrink-0">
-          <div className="sticky top-[100px] max-h-[calc(100vh-100px)] overflow-y-auto">
-            <SuggestedStreams />
-          </div>
-        </div>
+    <div className="flex h-[calc(100vh-80px)] w-full max-w-[1600px] mx-auto" style={{marginTop: 32}}>
+      {/* Left Sidebar - Recommended Streams */}
+      <aside className="w-56 max-w-[220px] h-full flex-shrink-0 flex flex-col overflow-y-auto border-r border-gray-200 bg-white">
+        <SuggestedStreams />
+      </aside>
 
-        {/* Center - Video Player Section */}
-        <div className="flex-1 max-w-[960px] flex-shrink-0">
+      {/* Main Content - Video Player and Info */}
+      <main className="flex-1 flex flex-col items-center justify-start px-6 py-4 min-w-0">
+        {/* Video Player */}
+        <div className="w-full max-w-[960px] aspect-video bg-black flex items-center justify-center mb-4" style={{borderRadius: 16}}>
+          {/* The actual video player and play button are inside the component */}
           <StreamPlayer />
         </div>
-
-        {/* Right Sidebar - Chat */}
-        <div className="w-80 max-w-[340px] flex-shrink-0">
-          <div className="sticky top-[100px] max-h-[calc(100vh-100px)] overflow-y-auto">
-            <ChatBox />
+        {/* Stream Info */}
+        <div className="w-full max-w-[960px] flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <img 
+                src="/profile-cory-williams.jpg" 
+                alt="Ral Nwogbo" 
+                className="w-14 h-14 rounded-full object-cover border-2 border-gray-200"
+              />
+              <div>
+                <div className="text-black font-bold text-2xl mb-1">Super Bowl Watch Party</div>
+                <div className="flex items-center gap-3 mb-1">
+                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">NFL</span>
+                  <span className="flex items-center text-gray-600 text-sm ml-2">
+                    <Star className="w-4 h-4 mr-1 text-yellow-500" />
+                    18.4k followers
+                  </span>
+                  <span className="flex items-center text-gray-600 text-sm ml-2">
+                    <Eye className="w-4 h-4 mr-1" />
+                    2,347 viewers
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <button className="bg-gray-100 hover:bg-gray-200 text-black px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-sm hover:shadow-md">
+                Follow
+              </button>
+              <button className="bg-gray-200 hover:bg-gray-300 text-black px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-sm hover:shadow-md">
+                Subscribe
+              </button>
+            </div>
+          </div>
+          {/* About Section */}
+          <div className="mt-2">
+            <h4 className="text-black font-bold text-lg mb-1">About Ral</h4>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Professional NFL player and passionate gamer. Join me for live streams where I share insights from the field and connect with fans through gaming. Always bringing the energy and competitive spirit from the gridiron to the virtual world.
+            </p>
           </div>
         </div>
-      </div>
+      </main>
+
+      {/* Right Sidebar - Chat */}
+      <aside className="w-80 max-w-[340px] h-full flex-shrink-0 flex flex-col overflow-y-auto border-l border-gray-200 bg-white">
+        <ChatBox />
+      </aside>
     </div>
   );
 } 
