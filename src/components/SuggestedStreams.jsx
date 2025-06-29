@@ -102,39 +102,39 @@ const suggestedStreams = [
 
 export default function SuggestedStreams() {
   return (
-    <aside className="w-55 bg-gray-800 border-r border-gray-700 flex-shrink-0 overflow-y-auto">
-      <div className="p-4">
-        <h3 className="text-white font-bold text-lg mb-4">Recommended Streams</h3>
-        <div className="space-y-3">
+    <aside className="w-50 bg-gray-50 border-r border-gray-200 flex-shrink-0 overflow-y-auto">
+      <div className="p-4 pt-24">
+        <h3 className="text-black font-bold text-lg mb-4">Recommended Streams</h3>
+        <div className="space-y-2">
           {suggestedStreams.map((stream) => (
             <div 
               key={stream.name} 
-              className="bg-gray-700 rounded-lg p-3 hover:bg-gray-600 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md border border-gray-600 hover:border-gray-500"
+              className="bg-white rounded-lg p-2 hover:bg-gray-100 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md border border-gray-200"
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
                 <div className="relative">
                   {stream.avatar ? (
                     <img 
                       src={stream.avatar} 
                       alt={stream.name} 
-                      className="w-12 h-12 rounded-full object-cover border-2 border-gray-500"
+                      className="w-10 h-10 rounded-full object-cover border border-gray-300"
                     />
                   ) : (
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm ${stream.color}`}>
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xs ${stream.color}`}>
                       {stream.name.split(' ').map(n => n[0]).join('')}
                     </div>
                   )}
                   {stream.live && (
-                    <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full font-bold flex items-center shadow-sm">
-                      <Dot className="w-2 h-2 mr-1 animate-pulse" />
+                    <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1 py-0.5 rounded-full font-bold flex items-center">
+                      <Dot className="w-1.5 h-1.5 mr-0.5 animate-pulse" />
                       LIVE
                     </div>
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-white font-bold text-sm mb-1 truncate">{stream.title}</div>
-                  <div className="text-gray-300 text-xs mb-1 truncate">{stream.name}</div>
-                  <div className="flex items-center text-gray-400 text-xs">
+                  <div className="text-black font-semibold text-xs mb-0.5 truncate">{stream.title}</div>
+                  <div className="text-gray-600 text-xs mb-0.5 truncate">{stream.name}</div>
+                  <div className="flex items-center text-gray-500 text-xs">
                     <Eye className="w-3 h-3 mr-1" />
                     {stream.viewers}
                   </div>

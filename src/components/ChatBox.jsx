@@ -2,26 +2,26 @@ import React from 'react';
 import { Crown } from 'lucide-react';
 
 const chatMessages = [
-  { user: 'fan123', time: '12:01', message: 'Let\'s go Ral! 🔥', role: 'user', color: 'text-blue-400' },
-  { user: 'sportsbuff', time: '12:02', message: 'That was an insane play!', role: 'user', color: 'text-green-400' },
-  { user: 'modMike', time: '12:03', message: 'Keep it respectful in chat, folks.', role: 'mod', color: 'text-purple-400' },
-  { user: 'viewer42', time: '12:04', message: 'NFL players are built different.', role: 'user', color: 'text-orange-400' },
-  { user: 'gamer_girl', time: '12:05', message: 'Who else is hyped for the next game?', role: 'user', color: 'text-pink-400' },
-  { user: 'fan123', time: '12:06', message: 'Me! 🙋‍♂️', role: 'user', color: 'text-blue-400' },
-  { user: 'streamerRal', time: '12:07', message: 'Thanks for the support everyone!', role: 'streamer', color: 'text-red-400' },
-  { user: 'modMike', time: '12:08', message: 'Welcome Ral! 👋', role: 'mod', color: 'text-purple-400' },
-  { user: 'tech_guy', time: '12:09', message: 'What\'s your setup for streaming?', role: 'user', color: 'text-indigo-400' },
-  { user: 'streamerRal', time: '12:10', message: 'I\'ll show you my setup later!', role: 'streamer', color: 'text-red-400' },
-  { user: 'modMike', time: '12:11', message: 'Great idea!', role: 'mod', color: 'text-purple-400' },
-  { user: 'new_fan', time: '12:12', message: 'Just discovered this stream, loving it!', role: 'user', color: 'text-cyan-400' },
-  { user: 'veteran_viewer', time: '12:13', message: 'Been here since day one!', role: 'user', color: 'text-yellow-400' },
+  { user: 'fan123', time: '12:01', message: 'Let\'s go Ral! 🔥', role: 'user', color: 'text-blue-600' },
+  { user: 'sportsbuff', time: '12:02', message: 'That was an insane play!', role: 'user', color: 'text-green-600' },
+  { user: 'modMike', time: '12:03', message: 'Keep it respectful in chat, folks.', role: 'mod', color: 'text-purple-600' },
+  { user: 'viewer42', time: '12:04', message: 'NFL players are built different.', role: 'user', color: 'text-orange-600' },
+  { user: 'gamer_girl', time: '12:05', message: 'Who else is hyped for the next game?', role: 'user', color: 'text-pink-600' },
+  { user: 'fan123', time: '12:06', message: 'Me! 🙋‍♂️', role: 'user', color: 'text-blue-600' },
+  { user: 'streamerRal', time: '12:07', message: 'Thanks for the support everyone!', role: 'streamer', color: 'text-red-600' },
+  { user: 'modMike', time: '12:08', message: 'Welcome Ral! 👋', role: 'mod', color: 'text-purple-600' },
+  { user: 'tech_guy', time: '12:09', message: 'What\'s your setup for streaming?', role: 'user', color: 'text-indigo-600' },
+  { user: 'streamerRal', time: '12:10', message: 'I\'ll show you my setup later!', role: 'streamer', color: 'text-red-600' },
+  { user: 'modMike', time: '12:11', message: 'Great idea!', role: 'mod', color: 'text-purple-600' },
+  { user: 'new_fan', time: '12:12', message: 'Just discovered this stream, loving it!', role: 'user', color: 'text-cyan-600' },
+  { user: 'veteran_viewer', time: '12:13', message: 'Been here since day one!', role: 'user', color: 'text-yellow-600' },
 ];
 
 export default function LiveChat() {
   return (
-    <aside className="w-62 bg-gray-800 border-l border-gray-700 flex-shrink-0 flex flex-col">
-      <div className="p-4 border-b border-gray-700">
-        <h3 className="text-white font-bold text-lg">Live Chat</h3>
+    <aside className="w-60 bg-slate-100 border-l border-gray-200 flex-shrink-0 flex flex-col">
+      <div className="p-4 border-b border-gray-200">
+        <h3 className="text-black font-bold text-lg">Live Chat</h3>
       </div>
       
       {/* Chat Messages */}
@@ -40,11 +40,11 @@ export default function LiveChat() {
                 <span className="text-xs text-gray-500 font-medium">{msg.time}</span>
                 <span className={`font-bold text-sm ${msg.color}`}>
                   {msg.user}
-                  {msg.role === 'mod' && <span className="text-purple-400 ml-1">(mod)</span>}
-                  {msg.role === 'streamer' && <span className="text-red-400 ml-1">(streamer)</span>}
+                  {msg.role === 'mod' && <span className="text-purple-600 ml-1">(mod)</span>}
+                  {msg.role === 'streamer' && <span className="text-red-600 ml-1">(streamer)</span>}
                 </span>
               </div>
-              <div className="bg-gray-700 rounded-xl px-3 py-2 text-gray-200 text-sm break-words border border-gray-600 shadow-sm">
+              <div className="bg-white rounded-lg px-3 py-2 text-gray-800 text-sm break-words border border-gray-200 shadow-sm">
                 {msg.message}
               </div>
             </div>
@@ -53,12 +53,12 @@ export default function LiveChat() {
       </div>
 
       {/* Chat Input */}
-      <div className="p-4 border-t border-gray-700 bg-gray-800">
+      <div className="p-4 border-t border-gray-200 bg-white">
         <div className="flex gap-2">
           <input
             type="text"
             placeholder="Send a message..."
-            className="flex-1 bg-gray-700 border border-gray-600 text-white placeholder-gray-400 px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm transition-all duration-200"
+            className="flex-1 bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm transition-all duration-200"
             disabled
           />
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 shadow-sm hover:shadow-md disabled:opacity-50" disabled>
