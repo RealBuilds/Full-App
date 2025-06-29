@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { NavLink } from 'react-router-dom';
 
 const navItems = [
-  { to: '/', label: 'Home', exact: true },
-  { to: '/streams', label: 'Streams' },
-  { to: '/discover', label: 'Discover' },
+  { to: '/', label: 'Home', exact: true, icon: Target },
+  { to: '/streams', label: 'Streams', icon: Play },
+  { to: '/discover', label: 'Discover', icon: Zap },
 ];
 
 export const Header = () => {
@@ -33,29 +33,33 @@ export const Header = () => {
 
           {/* Navigation Tabs - Desktop */}
           <nav className="hidden md:flex items-center space-x-1 bg-slate-100 rounded-full p-1">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.exact}
-                className={({ isActive }) =>
-                  `px-6 rounded-full text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'bg-blue-100 text-blue-700 font-bold'
-                      : 'text-slate-600 hover:bg-slate-100'
-                  }`
-                }
-              >
-                <Target className="w-4 h-4 mr-2" />
-                {item.label}
-              </NavLink>
-            ))}
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.exact}
+                  className={({ isActive }) =>
+                    `px-6 rounded-full text-sm font-medium flex items-center gap-2 transition-colors ${
+                      isActive
+                        ? 'bg-blue-100 text-blue-700 font-bold'
+                        : 'text-slate-600 hover:bg-slate-100'
+                    }`
+                  }
+                >
+                  <Icon className="w-4 h-4 mr-1" />
+                  {item.label}
+                </NavLink>
+              );
+            })}
             <a
               href="/leaderboard"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 rounded-full text-sm font-medium text-blue-700 hover:bg-blue-50 font-bold"
+              className="px-6 rounded-full text-sm font-medium flex items-center gap-2 text-blue-700 hover:bg-blue-50 font-bold"
             >
+              <Trophy className="w-4 h-4 mr-1" />
               Leaderboard
             </a>
           </nav>
@@ -113,27 +117,31 @@ export const Header = () => {
                 />
               </div>
               <div className="space-y-2">
-                {navItems.map((item) => (
-                  <NavLink
-                    key={item.to}
-                    to={item.to}
-                    end={item.exact}
-                    className={({ isActive }) =>
-                      `flex items-center space-x-3 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50 ${
-                        isActive ? 'bg-blue-100' : ''
-                      }`
-                    }
-                  >
-                    <Target className="w-4 h-4 mr-2" />
-                    {item.label}
-                  </NavLink>
-                ))}
+                {navItems.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <NavLink
+                      key={item.to}
+                      to={item.to}
+                      end={item.exact}
+                      className={({ isActive }) =>
+                        `flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50 ${
+                          isActive ? 'bg-blue-100' : ''
+                        }`
+                      }
+                    >
+                      <Icon className="w-5 h-5 mr-2" />
+                      {item.label}
+                    </NavLink>
+                  );
+                })}
                 <a
                   href="/leaderboard"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50"
+                  className="flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50"
                 >
+                  <Trophy className="w-5 h-5 mr-2" />
                   Leaderboard
                 </a>
               </div>
