@@ -6,20 +6,22 @@ import { Eye, Star } from 'lucide-react';
 
 export default function Streams() {
   return (
-    <div className="flex h-[calc(100vh-80px)] w-full">
+    <div className="flex h-[calc(100vh-80px)] w-full bg-white">
       {/* Left Sidebar - Navigation + Recommended Streams */}
-      <aside className="w-56 max-w-[220px] h-full flex-shrink-0 flex flex-col overflow-y-auto border-r border-gray-200 bg-white">
+      <aside className="w-60 flex-shrink-0 flex flex-col overflow-y-auto border-r border-gray-200 bg-gray-100 h-full">
         <SuggestedStreams />
       </aside>
 
       {/* Main Content - Video Player and Info */}
-      <main className="flex-1 flex flex-col items-center justify-start px-4 py-6 min-w-0">
+      <main className="flex-1 flex flex-col min-w-0">
         {/* Video Player */}
-        <div className="w-full max-w-[960px] aspect-video bg-black flex items-center justify-center mb-3" style={{borderRadius: 16}}>
-          <StreamPlayer />
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="w-full h-full flex items-center justify-center bg-black" style={{minHeight: 0}}>
+            <StreamPlayer />
+          </div>
         </div>
         {/* Stream Info */}
-        <div className="w-full max-w-[960px] flex flex-col gap-2">
+        <div className="w-full px-8 py-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="flex items-center gap-4">
               <img 
@@ -43,10 +45,10 @@ export default function Streams() {
               </div>
             </div>
             <div className="flex gap-2">
-              <button className="bg-gray-100 hover:bg-gray-200 text-black px-5 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-sm hover:shadow-md">
+              <button className="bg-gray-200 hover:bg-gray-300 text-black px-5 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-sm hover:shadow-md">
                 Follow
               </button>
-              <button className="bg-gray-200 hover:bg-gray-300 text-black px-5 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-sm hover:shadow-md">
+              <button className="bg-gray-300 hover:bg-gray-400 text-black px-5 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-sm hover:shadow-md">
                 Subscribe
               </button>
             </div>
@@ -62,7 +64,7 @@ export default function Streams() {
       </main>
 
       {/* Right Sidebar - Chat */}
-      <aside className="w-80 max-w-[340px] h-full flex-shrink-0 flex flex-col overflow-y-auto border-l border-gray-200 bg-white">
+      <aside className="w-80 flex-shrink-0 flex flex-col overflow-y-auto border-l border-gray-200 bg-gray-100 h-full">
         <ChatBox />
       </aside>
     </div>
