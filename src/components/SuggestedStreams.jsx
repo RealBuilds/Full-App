@@ -34,13 +34,29 @@ export default function SuggestedStreams() {
       viewers: "5.7k",
       avatar: "/real-madrid-2024-25.jpg",
       thumbnail: "/real-madrid-2024-25.jpg"
+    },
+    {
+      id: 5,
+      streamer: "NBA Highlights",
+      game: "Best Plays of the Week",
+      viewers: "3.2k",
+      avatar: "/profile-cory-williams.jpg",
+      thumbnail: "/basketball-morning-shootaround.jpg"
+    },
+    {
+      id: 6,
+      streamer: "Premier League",
+      game: "Match Day Coverage",
+      viewers: "4.1k",
+      avatar: "/real-madrid-2024-25.jpg",
+      thumbnail: "/soccer-skills-masterclass.jpg"
     }
   ];
 
   return (
-    <div className="w-80 bg-white border-r border-gray-200 shadow-lg h-full overflow-y-auto">
-      <div className="p-6 pt-8">
-        <h3 className="text-black font-bold text-xl mb-4">Recommended</h3>
+    <div className="w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+      <div className="p-4">
+        <h3 className="text-black font-bold text-lg mb-4">Recommended</h3>
         <div className="space-y-3">
           {suggestedStreams.map((stream) => (
             <div key={stream.id} className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-all duration-200 cursor-pointer border border-gray-200 shadow-sm hover:shadow-md">
@@ -49,9 +65,9 @@ export default function SuggestedStreams() {
                   <img 
                     src={stream.thumbnail} 
                     alt={stream.game}
-                    className="w-20 h-12 rounded-md object-cover shadow-sm"
+                    className="w-16 h-10 rounded-md object-cover shadow-sm"
                   />
-                  <div className="absolute top-1 left-1 bg-red-600 text-white text-xs px-1.5 py-0.5 rounded font-bold">
+                  <div className="absolute top-1 left-1 bg-red-600 text-white text-xs px-1 py-0.5 rounded font-bold">
                     LIVE
                   </div>
                 </div>
@@ -60,9 +76,9 @@ export default function SuggestedStreams() {
                     <img 
                       src={stream.avatar} 
                       alt={stream.streamer}
-                      className="w-5 h-5 rounded-full object-cover"
+                      className="w-4 h-4 rounded-full object-cover"
                     />
-                    <span className="text-black font-semibold text-sm truncate">{stream.streamer}</span>
+                    <span className="text-black font-semibold text-xs truncate">{stream.streamer}</span>
                   </div>
                   <div className="text-gray-700 text-xs mb-1 truncate">{stream.game}</div>
                   <div className="flex items-center text-gray-500 text-xs">

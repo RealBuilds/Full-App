@@ -3,7 +3,7 @@ import { Play, Eye, Star } from 'lucide-react';
 
 export default function StreamPlayer() {
   return (
-    <div className="w-full max-w-6xl mx-auto">
+    <div className="w-full mx-auto">
       {/* Video Player */}
       <div className="relative w-full aspect-video bg-black rounded-xl flex items-center justify-center shadow-2xl border border-gray-200 mb-6 overflow-hidden">
         {/* Play Button */}
@@ -40,10 +40,10 @@ export default function StreamPlayer() {
               </div>
             </div>
             <div className="flex gap-3">
-              <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
+              <button className="bg-red-600 hover:bg-red-700 text-black px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
                 Follow
               </button>
-              <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
+              <button className="bg-purple-600 hover:bg-purple-700 text-black px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
                 Subscribe
               </button>
             </div>

@@ -19,7 +19,10 @@ export default function ChatBox() {
     { id: 12, user: 'GridironGuru', message: 'Can\'t wait for the next play!', time: '2:45', color: 'text-pink-400' },
     { id: 13, user: 'FootballFanatic', message: 'This is peak performance!', time: '2:46', color: 'text-red-400' },
     { id: 14, user: 'ProPlayer', message: 'Ral, you\'re making history!', time: '2:47', color: 'text-indigo-400' },
-    { id: 15, user: 'SportsFan23', message: 'What a legend!', time: '2:48', color: 'text-blue-400' }
+    { id: 15, user: 'SportsFan23', message: 'What a legend!', time: '2:48', color: 'text-blue-400' },
+    { id: 16, user: 'NFL_Lover', message: 'This is the best stream ever!', time: '2:49', color: 'text-green-400' },
+    { id: 17, user: 'GameDay', message: 'Ral is unstoppable!', time: '2:50', color: 'text-purple-400' },
+    { id: 18, user: 'TouchdownKing', message: 'That was incredible!', time: '2:51', color: 'text-yellow-400' }
   ];
 
   const handleSubmit = (e) => {
@@ -30,9 +33,9 @@ export default function ChatBox() {
   };
 
   return (
-    <div className="w-full lg:w-96 h-full bg-gray-900 rounded-xl shadow-2xl border border-gray-700 flex flex-col overflow-hidden">
+    <div className="w-full bg-gray-900 rounded-lg shadow-2xl border border-gray-700 flex flex-col overflow-hidden">
       {/* Chat Header */}
-      <div className="bg-gray-800 border-b border-gray-700 p-4 rounded-t-xl">
+      <div className="bg-gray-800 border-b border-gray-700 p-4 rounded-t-lg">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-white font-bold text-lg">Live Chat</h3>
           <div className="flex items-center gap-2">
@@ -41,17 +44,17 @@ export default function ChatBox() {
           </div>
         </div>
         <div className="flex gap-2">
-          <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 flex-1">
+          <button className="bg-red-600 hover:bg-red-700 text-black px-4 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 flex-1">
             Follow
           </button>
-          <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 flex-1">
+          <button className="bg-purple-600 hover:bg-purple-700 text-black px-4 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 flex-1">
             Subscribe
           </button>
         </div>
       </div>
 
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-900">
+      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-900 min-h-[400px]">
         {chatMessages.map((msg) => (
           <div key={msg.id} className="flex items-start gap-2">
             <span className={`text-xs font-semibold ${msg.color} min-w-0 truncate`}>
@@ -66,7 +69,7 @@ export default function ChatBox() {
       </div>
 
       {/* Chat Input */}
-      <div className="bg-gray-800 border-t border-gray-700 p-4 rounded-b-xl">
+      <div className="bg-gray-800 border-t border-gray-700 p-4 rounded-b-lg">
         <form onSubmit={handleSubmit} className="flex items-center gap-2">
           <div className="flex-1 relative">
             <input

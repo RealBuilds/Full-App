@@ -27,32 +27,31 @@ export default function Streams() {
         </button>
       </div>
 
-      {/* Main Layout Container */}
-      <div className="max-w-[1440px] mx-auto p-8">
-        <div className="flex gap-8 h-screen">
-          {/* Left Sidebar - Recommended Streams (Desktop Only) */}
-          <div className="hidden xl:block w-80 flex-shrink-0">
+      {/* Main Layout Container - Kick-style */}
+      <div className="flex justify-center gap-8 p-4 lg:p-8 max-w-[1600px] mx-auto">
+        {/* Left Sidebar - Recommended Streams */}
+        <div className="hidden lg:block w-56 max-w-[220px] flex-shrink-0">
+          <div className="sticky top-[100px] max-h-[calc(100vh-100px)] overflow-y-auto">
             <SuggestedStreams />
           </div>
+        </div>
 
-          {/* Main Content Area - Video Player and Chat */}
-          <div className="flex-1 flex flex-col lg:flex-row gap-8 min-h-0">
-            {/* Video Player Section - 70% width */}
-            <div className="flex-1 min-w-0">
-              <StreamPlayer />
-            </div>
+        {/* Center - Video Player Section */}
+        <div className="flex-1 max-w-[960px] flex-shrink-0">
+          <StreamPlayer />
+        </div>
 
-            {/* Chat Section - 30% width */}
-            <div className="w-full lg:w-96 flex-shrink-0">
-              <ChatBox />
-            </div>
+        {/* Right Sidebar - Chat */}
+        <div className="hidden lg:block w-80 max-w-[340px] flex-shrink-0">
+          <div className="sticky top-[100px] max-h-[calc(100vh-100px)] overflow-y-auto">
+            <ChatBox />
           </div>
         </div>
       </div>
 
       {/* Mobile Sidebar Overlays */}
       {/* Left Sidebar - Mobile */}
-      <div className={`xl:hidden fixed inset-y-0 left-0 z-40 transition-transform duration-300 ease-in-out ${
+      <div className={`lg:hidden fixed inset-y-0 left-0 z-40 transition-transform duration-300 ease-in-out ${
         isLeftSidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <SuggestedStreams />
@@ -68,7 +67,7 @@ export default function Streams() {
       {/* Mobile Overlay */}
       {(isLeftSidebarOpen || isRightSidebarOpen) && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 xl:hidden"
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
           onClick={() => {
             setIsLeftSidebarOpen(false);
             setIsRightSidebarOpen(false);
