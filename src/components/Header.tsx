@@ -1,7 +1,13 @@
-
 import { useState } from "react";
 import { Menu, X, Search, Bell, MessageCircle, Trophy, Target, Zap, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { NavLink } from 'react-router-dom';
+
+const navItems = [
+  { to: '/', label: 'Home', exact: true },
+  { to: '/streams', label: 'Streams' },
+  { to: '/discover', label: 'Discover' },
+];
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,22 +33,30 @@ export const Header = () => {
 
           {/* Navigation Tabs - Desktop */}
           <nav className="hidden md:flex items-center space-x-1 bg-slate-100 rounded-full p-1">
-            <Button variant="ghost" size="sm" className="rounded-full bg-white shadow-sm px-6">
-              <Target className="w-4 h-4 mr-2" />
-              Feed
-            </Button>
-            <Button variant="ghost" size="sm" className="rounded-full px-6 text-slate-600">
-              <Play className="w-4 h-4 mr-2 text-red-500" />
-              Streams
-            </Button>
-            <Button variant="ghost" size="sm" className="rounded-full px-6 text-slate-600">
-              <Zap className="w-4 h-4 mr-2" />
-              Discover
-            </Button>
-            <Button variant="ghost" size="sm" className="rounded-full px-6 text-slate-600">
-              <Trophy className="w-4 h-4 mr-2" />
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.exact}
+                className={({ isActive }) =>
+                  `px-6 rounded-full text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'bg-blue-100 text-blue-700 font-bold'
+                      : 'text-slate-600 hover:bg-slate-100'
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+            <a
+              href="/leaderboard"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 rounded-full text-sm font-medium text-blue-700 hover:bg-blue-50 font-bold"
+            >
               Leaderboard
-            </Button>
+            </a>
           </nav>
 
           {/* Search Bar - Desktop */}
@@ -98,21 +112,27 @@ export const Header = () => {
                 />
               </div>
               <div className="space-y-2">
-                <a href="#" className="flex items-center space-x-3 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
-                  <Target className="w-5 h-5" />
-                  <span>Feed</span>
-                </a>
-                <a href="#" className="flex items-center space-x-3 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
-                  <Play className="w-5 h-5 text-red-500" />
-                  <span>Streams</span>
-                </a>
-                <a href="#" className="flex items-center space-x-3 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
-                  <Zap className="w-5 h-5" />
-                  <span>Discover</span>
-                </a>
-                <a href="#" className="flex items-center space-x-3 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
-                  <Trophy className="w-5 h-5" />
-                  <span>Leaderboard</span>
+                {navItems.map((item) => (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    end={item.exact}
+                    className={({ isActive }) =>
+                      `flex items-center space-x-3 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50 ${
+                        isActive ? 'bg-blue-100' : ''
+                      }`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                ))}
+                <a
+                  href="/leaderboard"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-3 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50"
+                >
+                  Leaderboard
                 </a>
               </div>
             </div>

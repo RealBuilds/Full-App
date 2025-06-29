@@ -1,4 +1,3 @@
-
 import { Heart, MessageCircle, Share2, CheckCircle, MoreHorizontal, Bookmark, Trophy, Target, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,26 +10,26 @@ export const Feed = () => {
   const posts = [
     {
       id: 1,
-      athlete: "Sarah Chen",
-      sport: "Swimming",
+      athlete: "Cory Williams",
+      sport: "Soccer",
       verified: true,
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-      content: "New personal record in the pool today! 🏊‍♀️ Shaved 0.3 seconds off my 200m freestyle. The countless hours of training are paying off. Mental preparation is just as important as physical conditioning - never forget that champions are made in the mind first.",
-      image: "https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      avatar: "/profile-cory-williams.jpg",
+      content: "This has to be one of the best teams ever assembled. I know they were lacking in the left back position and Dani Carvajal was injured, but they should have won way more than they did.",
+      image: "/real-madrid-2024-25.jpg",
       likes: 2847,
       comments: 156,
       shares: 23,
       timeAgo: "2h ago",
-      location: "Olympic Training Center",
-      achievement: "Personal Best",
+      location: "Real Madrid",
+      achievement: "Champions League",
       achievementIcon: Trophy
     },
     {
       id: 2,
-      athlete: "Marcus Johnson",
-      sport: "NFL",
+      athlete: "Ral Nwogbo",
+      sport: "Football",
       verified: true,
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+      avatar: "/profile-sofia-garcia.jpg",
       content: "Recovery isn't just about rest - it's about strategic preparation. Today's session focused on mobility, nutrition timing, and mental visualization. Your body adapts during recovery, not just during training. Respect the process. 🧠💪",
       likes: 4321,
       comments: 298,
@@ -41,10 +40,10 @@ export const Feed = () => {
     },
     {
       id: 3,
-      athlete: "Elena Rodriguez",
-      sport: "Tennis",
+      athlete: "Hollis Robertson",
+      sport: "Squash",
       verified: true,
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=100&h=100&fit=crop&crop=face",
+      avatar: "/profile-hollis-robertson.jpg",
       content: "Every point is a new beginning. You can be down 0-40 and still win the game. Tennis teaches resilience like no other sport. Today's match was a masterclass in mental fortitude. Never underestimate the power of believing in yourself. 🎾✨",
       image: "https://images.unsplash.com/photo-1544717684-4545f6fdcc20?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       likes: 1892,
