@@ -3,9 +3,9 @@ import { Play, Eye, Star } from 'lucide-react';
 
 export default function StreamPlayer() {
   return (
-    <main className="flex-1 bg-white flex flex-col items-center">
+    <div className="w-full max-w-6xl mx-auto">
       {/* Video Player */}
-      <div className="relative w-full max-w-6xl aspect-video bg-black rounded-xl flex items-center justify-center shadow-2xl border border-gray-200 mb-6">
+      <div className="relative w-full aspect-video bg-black rounded-xl flex items-center justify-center shadow-2xl border border-gray-200 mb-6 overflow-hidden">
         {/* Play Button */}
         <button className="absolute inset-0 flex items-center justify-center focus:outline-none group">
           <div className="bg-white rounded-full p-16 shadow-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-3xl">
@@ -15,7 +15,7 @@ export default function StreamPlayer() {
       </div>
 
       {/* Stream Info Panel */}
-      <div className="w-full max-w-6xl">
+      <div className="w-full">
         <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-6">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center gap-4">
@@ -58,6 +58,6 @@ export default function StreamPlayer() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 } 

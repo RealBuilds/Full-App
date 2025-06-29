@@ -38,7 +38,7 @@ export default function SuggestedStreams() {
   ];
 
   return (
-    <aside className="w-80 bg-white border-r border-gray-200 shadow-lg">
+    <div className="w-80 bg-white border-r border-gray-200 shadow-lg h-full overflow-y-auto">
       <div className="p-6 pt-8">
         <h3 className="text-black font-bold text-xl mb-4">Recommended</h3>
         <div className="space-y-3">
@@ -75,6 +75,6 @@ export default function SuggestedStreams() {
           ))}
         </div>
       </div>
-    </aside>
+    </div>
   );
 } 

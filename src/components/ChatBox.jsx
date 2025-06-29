@@ -30,9 +30,9 @@ export default function ChatBox() {
   };
 
   return (
-    <aside className="w-80 bg-gray-900 border-l border-gray-700 shadow-xl flex flex-col">
+    <div className="w-full lg:w-96 h-full bg-gray-900 rounded-xl shadow-2xl border border-gray-700 flex flex-col overflow-hidden">
       {/* Chat Header */}
-      <div className="bg-gray-800 border-b border-gray-700 p-4">
+      <div className="bg-gray-800 border-b border-gray-700 p-4 rounded-t-xl">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-white font-bold text-lg">Live Chat</h3>
           <div className="flex items-center gap-2">
@@ -51,7 +51,7 @@ export default function ChatBox() {
       </div>
 
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-3">
+      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-900">
         {chatMessages.map((msg) => (
           <div key={msg.id} className="flex items-start gap-2">
             <span className={`text-xs font-semibold ${msg.color} min-w-0 truncate`}>
@@ -66,7 +66,7 @@ export default function ChatBox() {
       </div>
 
       {/* Chat Input */}
-      <div className="bg-gray-800 border-t border-gray-700 p-4">
+      <div className="bg-gray-800 border-t border-gray-700 p-4 rounded-b-xl">
         <form onSubmit={handleSubmit} className="flex items-center gap-2">
           <div className="flex-1 relative">
             <input
@@ -99,6 +99,6 @@ export default function ChatBox() {
           </div>
         </form>
       </div>
-    </aside>
+    </div>
   );
 } 
