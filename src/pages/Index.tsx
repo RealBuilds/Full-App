@@ -6,11 +6,11 @@ import { TrendingTopics } from "@/components/TrendingTopics";
 import { Header } from "@/components/Header";
 
 const trainingStories = [
-  "Sarah Chen",
-  "Marcus Johnson",
-  "Elena Rodriguez",
-  "David Park",
-  "Maya Thompson",
+  "Mwendwa Daisley",
+  "Hollis Robertson",
+  "Cory Williams",
+  "Ral Nwogbo",
+  "Andrew Goddard",
 ];
 
 const trendingTopics = [

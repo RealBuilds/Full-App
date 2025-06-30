@@ -23,7 +23,7 @@ export const StreamingSection = () => {
     },
     {
       id: 3,
-      title: "Tennis Tournament Prep",
+      title: "Squash Tournament Prep",
       streamer: "Hollis Robertson",
       avatar: "/profile-hollis-robertson.jpg",
       viewers: 634,

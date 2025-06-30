@@ -16,12 +16,12 @@ export default function Streams() {
       <main className="flex-1 flex flex-col min-w-0">
         {/* Video Player */}
         <div className="flex-1 flex flex-col justify-center">
-          <div className="w-full h-full flex items-center justify-center bg-black" style={{minHeight: 0}}>
+          <div className="flex-1 w-full aspect-video flex items-center justify-center bg-black" style={{minHeight: 0}}>
             <StreamPlayer />
           </div>
         </div>
         {/* Stream Info */}
-        <div className="w-full px-8 py-4">
+        <div className="w-full max-w-3xl px-8 py-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="flex items-center gap-4">
               <img 

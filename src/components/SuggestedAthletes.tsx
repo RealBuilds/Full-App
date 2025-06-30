@@ -6,14 +6,14 @@ export const SuggestedAthletes = () => {
   const athletes = [
     {
       name: "Cory Willaims",
-      sport: "Track & Field",
+      sport: "Soccer",
       avatar: "/profile-cory-williams.jpg",
       followers: "892K",
       verified: true
     },
     {
       name: "Hollis Robertson",
-      sport: "Basketball",
+      sport: "Squash",
       avatar: "/profile-hollis-robertson.jpg",
       followers: "1.2M",
       verified: true

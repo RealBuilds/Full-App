@@ -1,3 +1,4 @@
+
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, MessageCircle, Share2, CheckCircle } from "lucide-react";
@@ -7,11 +8,11 @@ export const FeaturedContent = () => {
     {
       id: 1,
       athlete: "Ral Nwogbo",
-      sport: "NBA",
+      sport: "NFL",
       verified: true,
       avatar: "/profile-sofia-garcia.jpg",
-      content: "This has to be one of the best teams ever assembled. They should have won way more than they did.",
-      image: "/real-madrid-2024-25.jpg",
+      content: "Game day mentality isn't just about the 3 hours on the field. It's about the 165 hours of preparation that lead up to those moments. Every rep matters.",
+      image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       likes: 4200,
       comments: 387,
       timeAgo: "2h ago"
