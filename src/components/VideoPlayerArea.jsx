@@ -13,14 +13,14 @@ export default function StreamPlayer() {
       />
       {/* Overlay: Controls */}
       {/* Bottom left controls */}
-      <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-black bg-opacity-60 rounded-lg px-2 py-1">
-        <button className="text-white hover:text-blue-400 transition"><Pause className="w-5 h-5" /></button>
-        <button className="text-white hover:text-blue-400 transition"><Volume2 className="w-5 h-5" /></button>
+      <div className="absolute bottom-2 left-2 flex items-center gap-1 bg-black bg-opacity-60 rounded shadow-md px-1 py-0.5">
+        <button className="text-white hover:text-blue-400 transition"><Pause className="w-4 h-4" /></button>
+        <button className="text-white hover:text-blue-400 transition"><Volume2 className="w-4 h-4" /></button>
       </div>
       {/* Bottom right controls */}
-      <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-black bg-opacity-60 rounded-lg px-2 py-1">
-        <button className="text-white hover:text-blue-400 transition"><Settings className="w-5 h-5" /></button>
-        <button className="text-white hover:text-blue-400 transition"><Maximize2 className="w-5 h-5" /></button>
+      <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-black bg-opacity-60 rounded shadow-md px-1 py-0.5">
+        <button className="text-white hover:text-blue-400 transition"><Settings className="w-4 h-4" /></button>
+        <button className="text-white hover:text-blue-400 transition"><Maximize2 className="w-4 h-4" /></button>
       </div>
     </div>
   );
