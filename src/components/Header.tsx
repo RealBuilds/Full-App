@@ -80,17 +80,23 @@ export const Header = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-3">
-            <Button variant="ghost" size="sm" className="relative p-3 rounded-full hover:bg-slate-100">
-              <Bell className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">3</span>
-            </Button>
-            <Button variant="ghost" size="sm" className="relative p-3 rounded-full hover:bg-slate-100">
-              <MessageCircle className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full text-xs text-white flex items-center justify-center">7</span>
-            </Button>
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
-              <span className="text-white font-semibold text-sm">JD</span>
-            </div>
+            <NavLink to="/notifications">
+              <Button variant="ghost" size="sm" className="relative p-3 rounded-full hover:bg-slate-100">
+                <Bell className="w-5 h-5" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">3</span>
+              </Button>
+            </NavLink>
+            <NavLink to="/messages">
+              <Button variant="ghost" size="sm" className="relative p-3 rounded-full hover:bg-slate-100">
+                <MessageCircle className="w-5 h-5" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full text-xs text-white flex items-center justify-center">7</span>
+              </Button>
+            </NavLink>
+            <NavLink to="/profile">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+                <span className="text-white font-semibold text-sm">JD</span>
+              </div>
+            </NavLink>
           </div>
 
           {/* Mobile Menu Button */}
