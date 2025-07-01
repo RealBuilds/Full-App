@@ -25,7 +25,7 @@ export default function Streams() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="flex items-center gap-4">
               <img 
-                src="/sofiaGarcia.png" 
+                src="/profile-sofia-garcia.jpg" 
                 alt="Sofia Garcia" 
                 className="w-14 h-14 rounded-full object-cover border-2 border-gray-200"
               />

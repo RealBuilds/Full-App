@@ -21,14 +21,14 @@ export default function SuggestedStreams() {
       streamer: "Hollis Robertson",
       game: "Squash Training Session",
       viewers: "856",
-      image: "/hollisroberton.png"
+      image: "/profile-hollis-robertson.jpg"
     },
     {
       id: 3,
       streamer: "Cory Williams",
       game: "Basketball Morning Shootaround",
       viewers: "2.1k",
-      image: "/corywilliams.png"
+      image: "/profile-cory-williams.jpg"
     },
     {
       id: 4,
