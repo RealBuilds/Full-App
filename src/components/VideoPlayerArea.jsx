@@ -11,6 +11,12 @@ export default function StreamPlayer() {
         className="absolute inset-0 w-full h-full object-cover"
         draggable={false}
       />
+      {/* Webcam Overlay */}
+      <img
+        src="/webcam-user.jpg" // Place the image in public/webcam-user.jpg
+        alt="Webcam"
+        className="absolute top-4 right-4 w-20 h-20 rounded-full border-4 border-white shadow-lg object-cover z-20"
+      />
       {/* Overlay: Controls */}
       {/* Bottom left controls */}
       <div className="absolute bottom-2 left-2 flex items-center gap-1 bg-black bg-opacity-60 rounded shadow-md px-1 py-0.5">
