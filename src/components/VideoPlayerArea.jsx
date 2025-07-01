@@ -13,7 +13,7 @@ export default function StreamPlayer() {
       />
       {/* Webcam Overlay */}
       <img
-        src="/webcam-user.jpg" // Place the image in public/webcam-user.jpg
+        src="/Photo on 7-1-25 at 3.35 PM.jpg"
         alt="Webcam"
         className="absolute top-4 right-4 w-20 h-20 rounded-full border-4 border-white shadow-lg object-cover z-20"
       />
