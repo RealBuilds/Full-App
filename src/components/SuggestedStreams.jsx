@@ -121,7 +121,23 @@ export default function SuggestedStreams() {
                   <Eye className="w-3 h-3 mr-1" />
                   {stream.viewers}
                 </span>
-                <span className="bg-red-600 text-white text-[8px] px-0.5 py-0 rounded font-bold mt-0.5 leading-none">LIVE</span>
+                <span
+                  className="font-bold rounded leading-none inline-block"
+                  style={{
+                    backgroundColor: '#dc2626', // Tailwind red-600
+                    color: '#fff',
+                    fontSize: '9px',
+                    padding: '0 3px',
+                    marginTop: '2px',
+                    letterSpacing: '0.5px',
+                    minWidth: 'unset',
+                    minHeight: 'unset',
+                    height: '14px',
+                    lineHeight: '14px',
+                  }}
+                >
+                  LIVE
+                </span>
               </div>
             </div>
           ))}
