@@ -21,21 +21,21 @@ export default function SuggestedStreams() {
       streamer: "Hollis Robertson",
       game: "Squash Training Session",
       viewers: "856",
-      icon: true
+      image: "/hollisroberton.png"
     },
     {
       id: 3,
       streamer: "Cory Williams",
       game: "Basketball Morning Shootaround",
       viewers: "2.1k",
-      icon: true
+      image: "/corywilliams.png"
     },
     {
       id: 4,
       streamer: "Real Madrid",
       game: "2024-25 Season Highlights",
       viewers: "5.7k",
-      icon: true
+      image: "/real-madrid-2024-25.jpg"
     },
     {
       id: 5,
@@ -101,9 +101,17 @@ export default function SuggestedStreams() {
         <div className="space-y-2">
           {suggestedStreams.map((stream) => (
             <div key={stream.id} className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-gray-50 transition cursor-pointer">
-              <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 border border-gray-300">
-                <User className="w-5 h-5 text-gray-500" />
-              </div>
+              {stream.image ? (
+                <img
+                  src={stream.image}
+                  alt={stream.streamer}
+                  className="w-8 h-8 rounded-full object-cover border border-gray-300"
+                />
+              ) : (
+                <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 border border-gray-300">
+                  <User className="w-5 h-5 text-gray-500" />
+                </div>
+              )}
               <div className="flex-1 min-w-0">
                 <div className="text-black font-semibold text-sm truncate">{stream.streamer}</div>
                 <div className="text-gray-600 text-xs truncate">{stream.game}</div>
@@ -113,7 +121,7 @@ export default function SuggestedStreams() {
                   <Eye className="w-3 h-3 mr-1" />
                   {stream.viewers}
                 </span>
-                <span className="bg-red-600 text-white text-[10px] px-1 py-0.5 rounded font-bold mt-1">LIVE</span>
+                <span className="bg-red-600 text-white text-[9px] px-1 py-0.5 rounded font-bold mt-1" style={{letterSpacing: 0.5}}>LIVE</span>
               </div>
             </div>
           ))}
