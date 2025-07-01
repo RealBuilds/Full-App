@@ -82,7 +82,7 @@ export default function SuggestedStreams() {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col border-r border-gray-300">
       {/* Vertical Nav */}
       <nav className="flex flex-col gap-2 py-6 px-4 border-b border-gray-200 mb-2">
         {navItems.map((item) => (
@@ -121,7 +121,7 @@ export default function SuggestedStreams() {
                   <Eye className="w-3 h-3 mr-1" />
                   {stream.viewers}
                 </span>
-                <span className="bg-red-600 text-white text-[9px] px-1 py-0.5 rounded font-bold mt-1" style={{letterSpacing: 0.5}}>LIVE</span>
+                <span className="bg-red-600 text-white text-[7px] px-1 py-[1px] rounded font-bold mt-1 leading-none" style={{letterSpacing: 0.5}}>LIVE</span>
               </div>
             </div>
           ))}

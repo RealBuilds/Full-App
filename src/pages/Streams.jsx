@@ -8,7 +8,7 @@ export default function Streams() {
   return (
     <div className="flex h-[calc(100vh-80px)] w-full bg-white">
       {/* Left Sidebar - Navigation + Recommended Streams */}
-      <aside className="w-60 flex-shrink-0 flex flex-col overflow-y-auto border-r border-gray-200 bg-gray-100 h-full">
+      <aside className="w-60 flex-shrink-0 flex flex-col overflow-y-auto bg-gray-100 h-full border-r border-gray-300">
         <SuggestedStreams />
       </aside>
 
@@ -45,10 +45,10 @@ export default function Streams() {
               </div>
             </div>
             <div className="flex gap-2">
-              <button className="bg-gray-200 hover:bg-gray-300 text-black px-5 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-sm hover:shadow-md">
+              <button className="bg-gray-200 hover:bg-gray-300 text-black px-5 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-xl hover:shadow-2xl">
                 Follow
               </button>
-              <button className="bg-gray-300 hover:bg-gray-400 text-black px-5 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-sm hover:shadow-md">
+              <button className="bg-gray-300 hover:bg-gray-400 text-black px-5 py-2 rounded-lg font-bold text-sm transition-all duration-200 shadow-xl hover:shadow-2xl">
                 Subscribe
               </button>
             </div>
@@ -64,7 +64,7 @@ export default function Streams() {
       </main>
 
       {/* Right Sidebar - Chat */}
-      <aside className="w-80 flex-shrink-0 flex flex-col overflow-y-auto border-l border-gray-200 bg-gray-100 h-full">
+      <aside className="w-80 flex-shrink-0 flex flex-col overflow-y-auto bg-gray-100 h-full border-l border-gray-300">
         <ChatBox />
       </aside>
     </div>
