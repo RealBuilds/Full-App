@@ -2,7 +2,7 @@ import React from 'react';
 import SuggestedStreams from '../components/SuggestedStreams';
 import StreamPlayer from '../components/VideoPlayerArea';
 import ChatBox from '../components/ChatBox';
-import { Eye, Star } from 'lucide-react';
+import { Eye, Star, User } from 'lucide-react';
 
 export default function Streams() {
   return (
@@ -24,11 +24,9 @@ export default function Streams() {
         <div className="w-full max-w-3xl px-8 py-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="flex items-center gap-4">
-              <img 
-                src="/profile-cory-williams.jpg" 
-                alt="Ral Nwogbo" 
-                className="w-14 h-14 rounded-full object-cover border-2 border-gray-200"
-              />
+              <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gray-200 border-2 border-gray-300">
+                <User className="w-8 h-8 text-gray-500" />
+              </div>
               <div>
                 <div className="text-black font-bold text-2xl mb-1">Super Bowl Watch Party</div>
                 <div className="flex items-center gap-3 mb-1">

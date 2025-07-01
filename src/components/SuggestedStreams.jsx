@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eye, Home, Compass, Users } from 'lucide-react';
+import { Eye, Home, Compass, Users, User } from 'lucide-react';
 
 export default function SuggestedStreams() {
   const navItems = [
@@ -14,42 +14,70 @@ export default function SuggestedStreams() {
       streamer: "Sofia Garcia",
       game: "Soccer Skills Masterclass",
       viewers: "1.2k",
-      avatar: "/profile-sofia-garcia.jpg"
+      icon: true
     },
     {
       id: 2,
       streamer: "Hollis Robertson",
       game: "Squash Training Session",
       viewers: "856",
-      avatar: "/profile-hollis-robertson.jpg"
+      icon: true
     },
     {
       id: 3,
       streamer: "Cory Williams",
       game: "Basketball Morning Shootaround",
       viewers: "2.1k",
-      avatar: "/profile-cory-williams.jpg"
+      icon: true
     },
     {
       id: 4,
       streamer: "Real Madrid",
       game: "2024-25 Season Highlights",
       viewers: "5.7k",
-      avatar: "/real-madrid-2024-25.jpg"
+      icon: true
     },
     {
       id: 5,
       streamer: "NBA Highlights",
       game: "Best Plays of the Week",
       viewers: "3.2k",
-      avatar: "/profile-cory-williams.jpg"
+      icon: true
     },
     {
       id: 6,
       streamer: "Premier League",
       game: "Match Day Coverage",
       viewers: "4.1k",
-      avatar: "/real-madrid-2024-25.jpg"
+      icon: true
+    },
+    {
+      id: 7,
+      streamer: "Alex Kim",
+      game: "Tennis Live Analysis",
+      viewers: "1.8k",
+      icon: true
+    },
+    {
+      id: 8,
+      streamer: "Sam Lee",
+      game: "Golf Pro Tips",
+      viewers: "2.4k",
+      icon: true
+    },
+    {
+      id: 9,
+      streamer: "Jordan Smith",
+      game: "Cricket World Cup",
+      viewers: "3.9k",
+      icon: true
+    },
+    {
+      id: 10,
+      streamer: "Emily Chen",
+      game: "Volleyball Highlights",
+      viewers: "1.1k",
+      icon: true
     }
   ];
 
@@ -73,11 +101,9 @@ export default function SuggestedStreams() {
         <div className="space-y-2">
           {suggestedStreams.map((stream) => (
             <div key={stream.id} className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-gray-50 transition cursor-pointer">
-              <img
-                src={stream.avatar}
-                alt={stream.streamer}
-                className="w-8 h-8 rounded-full object-cover border border-gray-200"
-              />
+              <div className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 border border-gray-300">
+                <User className="w-5 h-5 text-gray-500" />
+              </div>
               <div className="flex-1 min-w-0">
                 <div className="text-black font-semibold text-sm truncate">{stream.streamer}</div>
                 <div className="text-gray-600 text-xs truncate">{stream.game}</div>

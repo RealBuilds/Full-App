@@ -21,7 +21,7 @@ function App() {
         <Sonner />
         <Router>
           <Header />
-          <main className="pt-20 w-full">
+          <main className="w-full">
             <Routes>
               <Route path="/" element={<Feed />} />
               <Route path="/streams" element={<Streams />} />
