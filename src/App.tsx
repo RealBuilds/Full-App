@@ -21,7 +21,7 @@ function App() {
         <Sonner />
         <Router>
           <Header />
-          <main className="pt-20 max-w-7xl mx-auto px-4">
+          <main className="pt-20 w-full">
             <Routes>
               <Route path="/" element={<Feed />} />
               <Route path="/streams" element={<Streams />} />
