@@ -93,9 +93,11 @@ export const Header = () => {
               </Button>
             </NavLink>
             <NavLink to="/profile">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
-                <span className="text-white font-semibold text-sm">JD</span>
-              </div>
+              <img
+                src="/profile-sofia-garcia.jpg"
+                alt="Ral Nwogbo"
+                className="w-10 h-10 rounded-full object-cover border-2 border-blue-500 cursor-pointer hover:scale-105 transition-transform"
+              />
             </NavLink>
           </div>
 

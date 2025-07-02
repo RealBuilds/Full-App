@@ -8,7 +8,7 @@ export default function Profile() {
     <div className="max-w-3xl mx-auto p-8">
       {/* Cover Image */}
       <div className="h-40 w-full bg-gradient-to-r from-blue-400 to-purple-500 rounded-xl mb-16 relative">
-        <img src="/webcam-user.jpg" alt="Avatar" className="absolute -bottom-12 left-8 w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover" />
+        <img src="/profile-sofia-garcia.jpg" alt="Ral Nwogbo" className="absolute -bottom-12 left-8 w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover" />
       </div>
       {/* Profile Info */}
       <div className="flex items-center justify-between mb-6">
@@ -16,7 +16,7 @@ export default function Profile() {
           <h1 className="text-2xl font-bold text-slate-900">Ral Nwogbo</h1>
           <div className="text-slate-500">@ralnwogbo</div>
         </div>
-        <button className="bg-blue-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-600">Follow</button>
+        <button className="bg-slate-200 text-slate-700 px-6 py-2 rounded-full font-semibold hover:bg-slate-300">Edit Profile</button>
       </div>
       {/* Stats */}
       <div className="flex space-x-8 mb-6">

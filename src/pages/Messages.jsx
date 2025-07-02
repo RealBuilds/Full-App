@@ -14,7 +14,7 @@ const messages = [
 export default function Messages() {
   const [selected, setSelected] = useState(0);
   return (
-    <div className="flex h-[80vh] bg-slate-50 rounded-lg shadow overflow-hidden">
+    <div className="flex h-screen w-screen overflow-hidden">
       {/* Sidebar */}
       <div className="w-72 bg-white border-r p-4 flex flex-col">
         <h2 className="text-lg font-bold mb-4">Chats</h2>
