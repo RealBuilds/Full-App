@@ -23,6 +23,9 @@ export default function Messages() {
     }
   }, [selected]);
 
+  // Height of the typing bar (matches the p-4 py-2 input/button area)
+  const TYPING_BAR_HEIGHT = 80;
+
   return (
     <div className="flex h-screen w-screen overflow-hidden">
       {/* Sidebar */}
@@ -47,8 +50,8 @@ export default function Messages() {
           <img src={conversations[selected].avatar} alt={conversations[selected].user} className="w-10 h-10 rounded-full object-cover" />
           <div className="font-semibold text-slate-900">{conversations[selected].user}</div>
         </div>
-        <div className="flex-1 min-h-0 flex flex-col">
-          <div className="flex-1 overflow-y-auto p-6 space-y-4" style={{ paddingBottom: '90px' }}>
+        <div className="flex-1 min-h-0 flex flex-col" style={{ paddingBottom: `${TYPING_BAR_HEIGHT}px` }}>
+          <div className="flex-1 overflow-y-auto p-6 space-y-4">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.fromMe ? 'justify-end' : 'justify-start'}`}>
                 <div className={`px-4 py-2 rounded-2xl max-w-xs ${m.fromMe ? 'bg-blue-500 text-white' : 'bg-white text-slate-900 border'}`}>{m.text}</div>
@@ -57,11 +60,11 @@ export default function Messages() {
             ))}
             <div ref={messagesEndRef} />
           </div>
-          <form className="p-4 bg-white border-t flex gap-2 flex-shrink-0">
-            <input type="text" placeholder="Type a message..." className="flex-1 rounded-full border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-full font-semibold hover:bg-blue-600">Send</button>
-          </form>
         </div>
+        <form className="fixed bottom-0 left-72 right-0 z-10 p-4 bg-white border-t flex gap-2" style={{ height: `${TYPING_BAR_HEIGHT}px` }}>
+          <input type="text" placeholder="Type a message..." className="flex-1 rounded-full border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-full font-semibold hover:bg-blue-600">Send</button>
+        </form>
       </div>
     </div>
   );
