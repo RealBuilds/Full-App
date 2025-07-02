@@ -7,22 +7,22 @@ export default function Profile() {
   return (
     <div className="max-w-3xl mx-auto p-8">
       {/* Cover Image */}
-      <div className="h-40 w-full bg-gradient-to-r from-blue-400 to-purple-500 rounded-xl mb-16 relative">
-        <img src="/profile-sofia-garcia.jpg" alt="Ral Nwogbo" className="absolute -bottom-12 left-8 w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover" />
-      </div>
-      {/* Profile Info */}
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-900">Ral Nwogbo</h1>
-          <div className="text-slate-500">@ralnwogbo</div>
+      <div className="h-40 w-full bg-gradient-to-r from-blue-400 to-purple-500 rounded-xl mb-6" />
+      {/* Profile Row */}
+      <div className="flex items-center gap-6 mb-4">
+        <img src="/profile-sofia-garcia.jpg" alt="Ral Nwogbo" className="w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover -mt-16 bg-white" />
+        <div className="flex-1">
+          <div className="flex items-center gap-4 mb-1">
+            <h1 className="text-2xl font-bold text-slate-900">Ral Nwogbo</h1>
+            <button className="bg-slate-200 text-slate-700 px-6 py-2 rounded-full font-semibold hover:bg-slate-300">Edit Profile</button>
+          </div>
+          <div className="text-slate-500 mb-2">@ralnwogbo</div>
+          <div className="flex space-x-8 text-slate-700 text-sm">
+            <div><span className="font-bold">18.4k</span> Followers</div>
+            <div><span className="font-bold">2,347</span> Following</div>
+            <div><span className="font-bold">1.2M</span> Likes</div>
+          </div>
         </div>
-        <button className="bg-slate-200 text-slate-700 px-6 py-2 rounded-full font-semibold hover:bg-slate-300">Edit Profile</button>
-      </div>
-      {/* Stats */}
-      <div className="flex space-x-8 mb-6">
-        <div><span className="font-bold">18.4k</span> Followers</div>
-        <div><span className="font-bold">2,347</span> Following</div>
-        <div><span className="font-bold">1.2M</span> Likes</div>
       </div>
       {/* Bio */}
       <div className="mb-8 text-slate-700">Professional NFL player and passionate gamer. Always bringing the energy and competitive spirit from the gridiron to the virtual world.</div>
