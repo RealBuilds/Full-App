@@ -6,6 +6,9 @@ import Streams from './pages/Streams';
 import Discover from './pages/Discover';
 import Leaderboard from './pages/Leaderboard';
 import NotFound from './pages/NotFound';
+import Notifications from './pages/Notifications';
+import Messages from './pages/Messages';
+import Profile from './pages/Profile';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -27,6 +30,9 @@ function App() {
               <Route path="/streams" element={<Streams />} />
               <Route path="/discover" element={<Discover />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
+              <Route path="/notifications" element={<Notifications />} />
+              <Route path="/messages" element={<Messages />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
