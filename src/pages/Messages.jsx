@@ -23,8 +23,9 @@ export default function Messages() {
     }
   }, [selected]);
 
-  // Height of the typing bar (matches the p-4 py-2 input/button area)
+  // Heights
   const TYPING_BAR_HEIGHT = 80;
+  const HEADER_HEIGHT = 72; // Approximate px height of the chat header (p-4 + avatar)
 
   return (
     <div className="flex h-screen w-screen overflow-hidden">
@@ -46,21 +47,25 @@ export default function Messages() {
       </div>
       {/* Main Chat */}
       <div className="flex-1 flex flex-col relative bg-slate-50">
-        <div className="border-b p-4 bg-white flex items-center gap-3 flex-shrink-0">
+        {/* Chat Header */}
+        <div className="border-b p-4 bg-white flex items-center gap-3 flex-shrink-0" style={{ height: `${HEADER_HEIGHT}px` }}>
           <img src={conversations[selected].avatar} alt={conversations[selected].user} className="w-10 h-10 rounded-full object-cover" />
           <div className="font-semibold text-slate-900">{conversations[selected].user}</div>
         </div>
-        <div className="flex-1 min-h-0 flex flex-col" style={{ paddingBottom: `${TYPING_BAR_HEIGHT}px` }}>
-          <div className="flex-1 overflow-y-auto p-6 space-y-4">
-            {messages.map((m, i) => (
-              <div key={i} className={`flex ${m.fromMe ? 'justify-end' : 'justify-start'}`}>
-                <div className={`px-4 py-2 rounded-2xl max-w-xs ${m.fromMe ? 'bg-blue-500 text-white' : 'bg-white text-slate-900 border'}`}>{m.text}</div>
-                <span className="text-xs text-slate-400 ml-2 self-end">{m.time}</span>
-              </div>
-            ))}
-            <div ref={messagesEndRef} />
-          </div>
+        {/* Messages Area (absolute, between header and typing bar) */}
+        <div
+          className="absolute left-0 right-0 overflow-y-auto p-6 space-y-4"
+          style={{ top: `${HEADER_HEIGHT}px`, bottom: `${TYPING_BAR_HEIGHT}px` }}
+        >
+          {messages.map((m, i) => (
+            <div key={i} className={`flex ${m.fromMe ? 'justify-end' : 'justify-start'}`}>
+              <div className={`px-4 py-2 rounded-2xl max-w-xs ${m.fromMe ? 'bg-blue-500 text-white' : 'bg-white text-slate-900 border'}`}>{m.text}</div>
+              <span className="text-xs text-slate-400 ml-2 self-end">{m.time}</span>
+            </div>
+          ))}
+          <div ref={messagesEndRef} />
         </div>
+        {/* Typing Bar (fixed at bottom) */}
         <form className="fixed bottom-0 left-72 right-0 z-10 p-4 bg-white border-t flex gap-2" style={{ height: `${TYPING_BAR_HEIGHT}px` }}>
           <input type="text" placeholder="Type a message..." className="flex-1 rounded-full border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
           <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-full font-semibold hover:bg-blue-600">Send</button>
