@@ -52,11 +52,8 @@ export default function Messages() {
           <img src={conversations[selected].avatar} alt={conversations[selected].user} className="w-10 h-10 rounded-full object-cover" />
           <div className="font-semibold text-slate-900">{conversations[selected].user}</div>
         </div>
-        {/* Messages Area (absolute, between header and typing bar) */}
-        <div
-          className="absolute left-0 right-0 overflow-y-auto p-6 space-y-4"
-          style={{ top: `${HEADER_HEIGHT}px`, bottom: `${TYPING_BAR_HEIGHT}px` }}
-        >
+        {/* Messages Area (no scrolling) */}
+        <div className="p-6 space-y-4">
           {messages.map((m, i) => (
             <div key={i} className={`flex ${m.fromMe ? 'justify-end' : 'justify-start'}`}>
               <div className={`px-4 py-2 rounded-2xl max-w-xs ${m.fromMe ? 'bg-blue-500 text-white' : 'bg-white text-slate-900 border'}`}>{m.text}</div>
