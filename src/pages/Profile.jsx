@@ -7,14 +7,14 @@ export default function Profile() {
   return (
     <div className="max-w-3xl mx-auto p-8">
       {/* Cover Image */}
-      <div className="h-40 w-full bg-gradient-to-r from-orange-500 to-red-500 rounded-xl mb-6" />
+      <div className="h-40 w-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl mb-6" />
       {/* Profile Row */}
       <div className="flex items-center gap-6 mb-4">
         <img src="/profile-sofia-garcia.jpg" alt="Ral Nwogbo" className="w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover -mt-16 bg-white" />
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-1">
             <h1 className="text-2xl font-bold text-slate-900">Ral Nwogbo</h1>
-            <button className="bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-orange-600">Edit Profile</button>
+            <button className="bg-blue-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-purple-600">Edit Profile</button>
           </div>
           <div className="text-slate-500 mb-2">@ralnwogbo</div>
           <div className="flex space-x-8 text-slate-700 text-sm">
@@ -27,12 +27,12 @@ export default function Profile() {
       {/* Bio */}
       <div className="mb-8 text-slate-700">Professional NFL player and passionate gamer. Always bringing the energy and competitive spirit from the gridiron to the virtual world.</div>
       {/* Tabs */}
-      <div className="flex space-x-6 border-b border-orange-200 mb-6">
+      <div className="flex space-x-6 border-b border-blue-200 mb-6">
         {tabs.map(tab => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`pb-2 px-2 font-medium text-lg border-b-2 transition-colors ${activeTab === tab ? 'border-orange-500 text-orange-600' : 'border-transparent text-slate-500 hover:text-orange-500'}`}
+            className={`pb-2 px-2 font-medium text-lg border-b-2 transition-colors ${activeTab === tab ? 'border-blue-500 text-blue-600' : 'border-transparent text-slate-500 hover:text-purple-500'}`}
           >
             {tab}
           </button>

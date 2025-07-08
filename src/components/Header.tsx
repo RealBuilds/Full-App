@@ -20,16 +20,17 @@ export const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                {/* Optionally, add a playful icon for Trippin branding */}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-white">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c.5 2.5 2.5 4.5 4.5 5.5C19 9.5 20 11.5 20 14c0 4-3.5 7-8 7s-8-3-8-7c0-2.5 1-4.5 3.5-5.5C9.5 7.5 11.5 5.5 12 3z" />
                 </svg>
               </div>
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-orange-500 rounded-full border-2 border-white"></div>
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"></div>
             </div>
             <div>
-              <span className="text-2xl font-bold text-orange-600">Hottake</span>
-              <div className="text-xs text-orange-400 font-medium">THE HOTTEST TAKES</div>
+              <span className="text-2xl font-bold text-blue-600">Trippin</span>
+              <div className="text-xs text-purple-400 font-medium">THE HOTTEST TAKES & FOULS</div>
             </div>
           </div>
 

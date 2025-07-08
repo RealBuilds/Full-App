@@ -62,7 +62,7 @@ export default function FeedPage() {
                 {trendingTopics.map((topic) => (
                   <li key={topic.tag} className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-100 transition">
                     <div className="flex items-center gap-2">
-                      <svg className="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
                       </svg>
                       <span className="text-blue-600 font-medium">{topic.tag}</span>
@@ -80,7 +80,7 @@ export default function FeedPage() {
                 {sportsCategories.map((cat) => (
                   <li key={cat.name} className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-100 transition">
                     <div className="flex items-center gap-2">
-                      <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                       </svg>
                       <span className="font-medium text-slate-800">{cat.name}</span>
@@ -94,6 +94,8 @@ export default function FeedPage() {
 
           {/* Main Feed Content */}
           <main className="lg:col-span-6 flex-1 max-w-2xl mx-auto space-y-6">
+            <h1 className="text-2xl font-bold mb-4 text-blue-600">Feed</h1>
+            <div className="text-purple-400 mb-8 font-medium">THE HOTTEST TAKES & FOULS</div>
             <Feed />
           </main>
 
@@ -112,7 +114,7 @@ export default function FeedPage() {
             <div className="bg-white rounded-lg shadow p-4">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-bold text-slate-900">Live Scores</h3>
-                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
               </div>
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-2 border-b border-slate-100">

@@ -42,7 +42,8 @@ const reels = [
 export default function Discover() {
   return (
     <div className="min-h-screen bg-white py-8 px-4">
-      <h1 className="text-3xl font-bold text-orange-600 mb-8 text-center">Discover Reels</h1>
+      <h1 className="text-2xl font-bold mb-4 text-blue-600">Discover</h1>
+      <div className="text-purple-400 mb-8 font-medium">THE HOTTEST TAKES & FOULS</div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {reels.map((reel) => (
           <div key={reel.id} className="relative group rounded-2xl overflow-hidden shadow-lg bg-white border border-orange-100 hover:shadow-xl transition-all">

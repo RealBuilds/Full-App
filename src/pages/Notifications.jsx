@@ -5,20 +5,20 @@ const notifications = [
   { type: "mention", user: "@sportsfan23", avatar: "/profile-sofia-garcia.jpg", message: "mentioned you in a comment", time: "2m" },
   { type: "follow", user: "@alexkim", avatar: "/profile-cory-williams.jpg", message: "started following you", time: "10m" },
   { type: "like", user: "@nfl_lover", avatar: "/profile-hollis-robertson.jpg", message: "liked your post", time: "1h" },
-  { type: "system", user: "Hottake", avatar: null, message: "Your profile was verified!", time: "3h" },
+  { type: "system", user: "Trippin", avatar: null, message: "Your profile was verified!", time: "3h" },
 ];
 
 export default function Notifications() {
   const [activeTab, setActiveTab] = useState("All");
   return (
     <div className="p-8 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6 text-orange-600">Notifications</h1>
-      <div className="flex space-x-4 mb-6 border-b border-orange-200">
+      <h1 className="text-2xl font-bold mb-6 text-blue-600">Notifications</h1>
+      <div className="flex space-x-4 mb-6 border-b border-blue-200">
         {tabs.map(tab => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`pb-2 px-2 font-medium text-lg border-b-2 transition-colors ${activeTab === tab ? 'border-orange-500 text-orange-600' : 'border-transparent text-slate-500 hover:text-orange-500'}`}
+            className={`pb-2 px-2 font-medium text-lg border-b-2 transition-colors ${activeTab === tab ? 'border-blue-500 text-blue-600' : 'border-transparent text-slate-500 hover:text-purple-500'}`}
           >
             {tab}
           </button>
@@ -30,7 +30,7 @@ export default function Notifications() {
             {n.avatar ? (
               <img src={n.avatar} alt={n.user} className="w-12 h-12 rounded-full object-cover" />
             ) : (
-              <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-600">HT</div>
+              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600">TP</div>
             )}
             <div className="flex-1">
               <span className="font-semibold text-slate-900 mr-2">{n.user}</span>

@@ -9,6 +9,7 @@ export default function Streams() {
     <div className="flex h-[calc(100vh-80px)] w-full bg-white">
       {/* Left Sidebar - Navigation + Recommended Streams */}
       <aside className="w-60 flex-shrink-0 flex flex-col overflow-y-auto bg-gray-100 h-full border-r border-gray-300">
+        <div className="text-blue-600 font-bold text-lg mb-2">Recommended Streams</div>
         <SuggestedStreams />
       </aside>
 
