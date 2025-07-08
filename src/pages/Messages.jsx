@@ -9,7 +9,6 @@ const messages = [
   { fromMe: false, text: "Hey! Ready for the match?", time: "12:30" },
   { fromMe: true, text: "Absolutely! See you there.", time: "12:31" },
   { fromMe: false, text: "Don't forget your gear.", time: "12:32" },
-  // Add more messages to demonstrate scrolling
   ...Array(15).fill({ fromMe: false, text: "Extra message for scroll.", time: "12:33" })
 ];
 
@@ -52,18 +51,20 @@ export default function Messages() {
           <img src={conversations[selected].avatar} alt={conversations[selected].user} className="w-10 h-10 rounded-full object-cover" />
           <div className="font-semibold text-slate-900">{conversations[selected].user}</div>
         </div>
-        {/* Messages Area (absolute, between header and typing bar) */}
+        {/* Messages Area (absolute, between header and typing bar, always bottom-aligned) */}
         <div
-          className="absolute left-0 right-0 overflow-y-auto p-6 space-y-4"
+          className="absolute left-0 right-0 flex flex-col justify-end overflow-y-auto p-6 space-y-4"
           style={{ top: `${HEADER_HEIGHT}px`, bottom: `${TYPING_BAR_HEIGHT}px` }}
         >
-          {messages.map((m, i) => (
-            <div key={i} className={`flex ${m.fromMe ? 'justify-end' : 'justify-start'}`}>
-              <div className={`px-4 py-2 rounded-2xl max-w-xs ${m.fromMe ? 'bg-orange-500 text-white' : 'bg-white text-slate-900 border'}`}>{m.text}</div>
-              <span className="text-xs text-slate-400 ml-2 self-end">{m.time}</span>
-            </div>
-          ))}
-          <div ref={messagesEndRef} />
+          <div>
+            {messages.map((m, i) => (
+              <div key={i} className={`flex ${m.fromMe ? 'justify-end' : 'justify-start'}`}>
+                <div className={`px-4 py-2 rounded-2xl max-w-xs ${m.fromMe ? 'bg-orange-500 text-white' : 'bg-white text-slate-900 border'}`}>{m.text}</div>
+                <span className="text-xs text-slate-400 ml-2 self-end">{m.time}</span>
+              </div>
+            ))}
+            <div ref={messagesEndRef} />
+          </div>
         </div>
         {/* Typing Bar (fixed at bottom of window, aligned with chat area) */}
         <form className="fixed bottom-0 left-72 right-0 z-10 p-4 bg-white border-t flex gap-2" style={{ height: `${TYPING_BAR_HEIGHT}px` }}>
