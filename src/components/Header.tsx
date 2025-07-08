@@ -29,7 +29,7 @@ export const Header = () => {
               <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"></div>
             </div>
             <div>
-              <span className="text-2xl font-bold text-blue-600">Tripping</span>
+              <span className="text-2xl font-bold text-blue-600">Trippin</span>
             </div>
           </div>
 
