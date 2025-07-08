@@ -5,7 +5,7 @@ const notifications = [
   { type: "mention", user: "@sportsfan23", avatar: "/profile-sofia-garcia.jpg", message: "mentioned you in a comment", time: "2m" },
   { type: "follow", user: "@alexkim", avatar: "/profile-cory-williams.jpg", message: "started following you", time: "10m" },
   { type: "like", user: "@nfl_lover", avatar: "/profile-hollis-robertson.jpg", message: "liked your post", time: "1h" },
-  { type: "system", user: "Trippin", avatar: null, message: "Your profile was verified!", time: "3h" },
+  { type: "system", user: "Tripping", avatar: null, message: "Your profile was verified!", time: "3h" },
 ];
 
 export default function Notifications() {

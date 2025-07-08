@@ -40,9 +40,8 @@ const Index = () => {
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c.5 2.5 2.5 4.5 4.5 5.5C19 9.5 20 11.5 20 14c0 4-3.5 7-8 7s-8-3-8-7c0-2.5 1-4.5 3.5-5.5C9.5 7.5 11.5 5.5 12 3z" />
           </svg>
         </div>
-        <h1 className="text-4xl font-bold text-blue-600 mb-2">Trippin</h1>
-        <div className="text-lg text-purple-400 font-medium mb-6">THE HOTTEST TAKES & FOULS</div>
-        <p className="text-slate-700 max-w-xl text-center mb-8">Welcome to Trippin, the boldest sports streaming and social platform. Share your wildest takes, catch the hottest moments, and see who's really trippin'—on and off the field.</p>
+        <h1 className="text-4xl font-bold text-blue-600 mb-2">Tripping</h1>
+        <p className="text-slate-700 max-w-xl text-center mb-8">Welcome to Tripping, the boldest sports streaming and social platform. Share your wildest takes, catch the hottest moments, and see who's really tripping—on and off the field.</p>
         {/* ... CTA buttons ... */}
       </div>
       <div className="max-w-[1380px] mx-auto px-2 sm:px-4 lg:px-8 py-8">
