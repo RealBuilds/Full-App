@@ -23,10 +23,6 @@ export default function Messages() {
     }
   }, [selected]);
 
-  // Heights
-  const TYPING_BAR_HEIGHT = 80;
-  const HEADER_HEIGHT = 72; // px height of the chat header
-
   return (
     <div className="flex h-screen w-screen overflow-hidden">
       {/* Sidebar */}
@@ -45,15 +41,15 @@ export default function Messages() {
           ))}
         </div>
       </div>
-      {/* Main Chat (relative for absolute children) */}
-      <div className="flex-1 relative bg-slate-50">
+      {/* Main Chat */}
+      <div className="flex-1 flex flex-col bg-slate-50">
         {/* Chat Header */}
-        <div className="border-b p-4 bg-white flex items-center gap-3 flex-shrink-0" style={{ height: `${HEADER_HEIGHT}px` }}>
+        <div className="border-b p-4 bg-white flex items-center gap-3 flex-shrink-0">
           <img src={conversations[selected].avatar} alt={conversations[selected].user} className="w-10 h-10 rounded-full object-cover" />
           <div className="font-semibold text-slate-900">{conversations[selected].user}</div>
         </div>
-        {/* Messages Area (no scrolling) */}
-        <div className="p-6 space-y-4">
+        {/* Messages Area */}
+        <div className="flex-1 overflow-y-auto p-6 space-y-4">
           {messages.map((m, i) => (
             <div key={i} className={`flex ${m.fromMe ? 'justify-end' : 'justify-start'}`}>
               <div className={`px-4 py-2 rounded-2xl max-w-xs ${m.fromMe ? 'bg-orange-500 text-white' : 'bg-white text-slate-900 border'}`}>{m.text}</div>
@@ -62,8 +58,8 @@ export default function Messages() {
           ))}
           <div ref={messagesEndRef} />
         </div>
-        {/* Typing Bar (fixed at bottom of window, aligned with chat area) */}
-        <form className="fixed bottom-0 left-72 right-0 z-10 p-4 bg-white border-t flex gap-2" style={{ height: `${TYPING_BAR_HEIGHT}px` }}>
+        {/* Typing Bar */}
+        <form className="p-4 bg-white border-t flex gap-2 flex-shrink-0">
           <input type="text" placeholder="Type a message..." className="flex-1 rounded-full border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400" />
           <button type="submit" className="bg-orange-500 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-600">Send</button>
         </form>
