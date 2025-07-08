@@ -9,11 +9,11 @@ export default function Streams() {
     <div className="flex h-[calc(100vh-80px)] w-full bg-white">
       {/* Left Sidebar - Navigation + Recommended Streams */}
       <aside className="w-60 flex-shrink-0 flex flex-col overflow-y-auto bg-gray-100 h-full border-r border-gray-300 items-center pt-6">
-        <div className="text-blue-600 font-bold text-lg mb-4 text-center w-full">Recommended Streams</div>
-        <div className="w-full flex flex-col items-center">
-          <SuggestedStreams />
-        </div>
-      </aside>
+          {/* Removed Recommended Streams header */}
+          <div className="w-full flex flex-col items-center">
+            <SuggestedStreams />
+          </div>
+        </aside>
 
       {/* Main Content - Video Player and Info */}
       <main className="flex-1 flex flex-col min-w-0">

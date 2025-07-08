@@ -94,7 +94,6 @@ export default function FeedPage() {
 
           {/* Main Feed Content */}
           <main className="lg:col-span-6 flex-1 max-w-2xl mx-auto space-y-6">
-            <h1 className="text-2xl font-bold mb-4 text-blue-600">Feed</h1>
             <Feed />
           </main>
 
