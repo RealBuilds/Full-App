@@ -20,14 +20,16 @@ export const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-slate-800 to-slate-600 rounded-xl flex items-center justify-center shadow-lg">
-                <Trophy className="w-6 h-6 text-yellow-400" />
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-white">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c.5 2.5 2.5 4.5 4.5 5.5C19 9.5 20 11.5 20 14c0 4-3.5 7-8 7s-8-3-8-7c0-2.5 1-4.5 3.5-5.5C9.5 7.5 11.5 5.5 12 3z" />
+                </svg>
               </div>
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-orange-500 rounded-full border-2 border-white"></div>
             </div>
             <div>
-              <span className="text-2xl font-bold text-slate-900">AthleteArena</span>
-              <div className="text-xs text-slate-500 font-medium">FOR CHAMPIONS</div>
+              <span className="text-2xl font-bold text-orange-600">Hottake</span>
+              <div className="text-xs text-orange-400 font-medium">THE HOTTEST TAKES</div>
             </div>
           </div>
 
