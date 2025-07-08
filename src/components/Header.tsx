@@ -55,15 +55,6 @@ export const Header = () => {
                 </NavLink>
               );
             })}
-            <a
-              href="/leaderboard"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 rounded-full text-sm font-medium flex items-center gap-2 text-blue-700 hover:bg-blue-50 font-bold"
-            >
-              <Trophy className="w-4 h-4 mr-1" />
-              Leaderboard
-            </a>
           </nav>
 
           {/* Search Bar - Desktop */}
@@ -145,15 +136,6 @@ export const Header = () => {
                     </NavLink>
                   );
                 })}
-                <a
-                  href="/leaderboard"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50"
-                >
-                  <Trophy className="w-5 h-5 mr-2" />
-                  Leaderboard
-                </a>
               </div>
             </div>
           </div>
