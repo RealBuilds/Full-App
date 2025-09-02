@@ -1,0 +1,140 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// Shared fields
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  handle       String    @unique
+  passwordHash String
+  role         Role      @default(USER)
+
+  profile      Profile?
+  posts        Post[]
+  likes        Like[]
+  comments     Comment[]
+  notifications Notification[] @relation("UserNotifications")
+
+  // follow relations
+  following    Follow[]  @relation("following")
+  followers    Follow[]  @relation("followers")
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  deletedAt    DateTime?
+}
+
+model Profile {
+  userId       String   @id
+  user         User     @relation(fields: [userId], references: [id])
+  name         String
+  bio          String   @default("")
+  avatarUrl    String? 
+  privateFlag  Boolean  @default(false)
+  postsCount   Int      @default(0)
+  followersCount Int    @default(0)
+  followingCount Int    @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Follow {
+  id          String   @id @default(cuid())
+  followerId  String
+  followeeId  String
+  follower    User     @relation("following", fields: [followerId], references: [id])
+  followee    User     @relation("followers", fields: [followeeId], references: [id])
+  createdAt   DateTime @default(now())
+
+  @@unique([followerId, followeeId])
+  @@index([followeeId])
+}
+
+model Post {
+  id          String      @id @default(cuid())
+  authorId    String
+  author      User        @relation(fields: [authorId], references: [id])
+  text        String
+  mediaCount  Int         @default(0)
+  replyToId   String? 
+  replyTo     Post?       @relation("PostReplies", fields: [replyToId], references: [id])
+  replies     Post[]      @relation("PostReplies")
+  visibility  Visibility  @default(PUBLIC)
+  likes       Like[]
+  comments    Comment[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  deletedAt   DateTime?
+
+  @@index([authorId, createdAt])
+}
+
+model Like {
+  userId    String
+  postId    String
+  user      User   @relation(fields: [userId], references: [id])
+  post      Post   @relation(fields: [postId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@id([userId, postId])
+  @@index([postId])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  postId    String
+  authorId  String
+  post      Post     @relation(fields: [postId], references: [id])
+  author    User     @relation(fields: [authorId], references: [id])
+  text      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  @@index([postId, createdAt])
+}
+
+model Notification {
+  id         String           @id @default(cuid())
+  userId     String
+  user       User             @relation("UserNotifications", fields: [userId], references: [id])
+  type       NotificationType
+  actorId    String
+  postId     String?
+  commentId  String?
+  createdAt  DateTime         @default(now())
+  readAt     DateTime?
+
+  @@index([userId, createdAt])
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Visibility {
+  PUBLIC
+  FOLLOWERS
+  PRIVATE
+}
+
+enum NotificationType {
+  FOLLOW
+  LIKE
+  COMMENT
+  MENTION
+}
