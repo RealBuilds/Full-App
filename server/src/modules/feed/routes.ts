@@ -42,15 +42,20 @@ export default async function feedRoutes(app: FastifyInstance) {
 		const postIds = pairs.map((p) => p.id);
 		if (postIds.length === 0) return reply.send({ items: [], nextCursor: null });
 
-		const blocks = await prisma.block.findMany({ where: { blockerId: userId }, select: { blockedId: true } });
-		const blockedSet = new Set(blocks.map((b) => b.blockedId));
+		// Blocks: exclude authors the viewer blocked, and authors who blocked the viewer
+		const [myBlocks, blocksMe] = await Promise.all([
+			prisma.block.findMany({ where: { blockerId: userId }, select: { blockedId: true } }),
+			prisma.block.findMany({ where: { blockedId: userId }, select: { blockerId: true } }),
+		]);
+		const blockedSet = new Set(myBlocks.map((b) => b.blockedId));
+		const blockedBySet = new Set(blocksMe.map((b) => b.blockerId));
 
 		const posts = await prisma.post.findMany({
 			where: {
 				id: { in: postIds },
 				deletedAt: null,
 			},
-			include: { author: { select: { id: true, handle: true } } },
+			include: { author: { select: { id: true, handle: true, profile: { select: { privateFlag: true } } } } },
 		});
 
 		const authorIds = posts.map((p) => p.authorId);
@@ -61,9 +66,15 @@ export default async function feedRoutes(app: FastifyInstance) {
 		);
 
 		const visible = posts.filter((p) => {
-			if (blockedSet.has(p.authorId)) return false;
+			if (blockedSet.has(p.authorId)) return false; // I blocked the author
+			if (blockedBySet.has(p.authorId)) return false; // Author blocked me
 			if (p.visibility === 'PUBLIC') return true;
-			if (p.visibility === 'FOLLOWERS') return followSet.has(p.authorId) || p.authorId === userId;
+			if (p.visibility === 'FOLLOWERS') {
+				// If author's profile is private, require follower or self
+				const isPrivate = !!p.author.profile?.privateFlag;
+				if (isPrivate) return followSet.has(p.authorId) || p.authorId === userId;
+				return true;
+			}
 			if (p.visibility === 'PRIVATE') return p.authorId === userId;
 			return false;
 		});
