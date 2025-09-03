@@ -6,6 +6,7 @@ import swaggerUi from '@fastify/swagger-ui';
 import rateLimit from '@fastify/rate-limit';
 import authRoutes from './modules/auth/routes';
 import feedRoutes from './modules/feed/routes';
+import { setupSockets } from './web/sockets';
 import { createFeedFanoutWorker } from './libs/queue';
 import { processFeedFanout } from './modules/feed/worker';
 
@@ -35,6 +36,9 @@ server.get('/health', async () => ({ status: 'ok' }));
 await server.register(authRoutes);
 // Feed routes
 await server.register(feedRoutes);
+
+// Sockets
+await setupSockets(server);
 
 const port = Number(process.env.PORT || 4000);
 const host = process.env.HOST || '0.0.0.0';
