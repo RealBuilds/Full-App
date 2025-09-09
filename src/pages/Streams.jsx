@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SuggestedStreams from '../components/SuggestedStreams';
 import StreamPlayer from '../components/VideoPlayerArea';
@@ -18,13 +18,22 @@ export default function Streams() {
       <div className="mx-auto max-w-7xl w-full px-3 sm:px-4 lg:px-6 py-3 sm:py-4 flex-1 pb-16 sm:pb-0">
         {/* Layout: stack on mobile, side-by-side on md+ */}
         <div className="flex flex-col md:flex-row md:items-stretch gap-3 sm:gap-4">
-          {/* Optional left sidebar - hide on small screens */}
-          <aside className="hidden lg:flex w-60 flex-shrink-0 flex-col overflow-y-auto bg-gray-100 h-full border border-gray-200 rounded-md p-3">
+          {/* Recommended sidebar: visible on md+, collapsible on mobile */}
+          <aside className="hidden md:flex w-60 flex-shrink-0 flex-col overflow-y-auto bg-gray-100 h-full border border-gray-200 rounded-md p-3">
             <SuggestedStreams />
           </aside>
 
           {/* Video + info */}
           <main className="w-full md:flex-1 min-w-0">
+            {/* Mobile toggle for recommended */}
+            <div className="md:hidden mb-3">
+              <details className="rounded-md border bg-gray-50">
+                <summary className="cursor-pointer px-3 py-2 text-sm font-medium">Recommended Streams</summary>
+                <div className="max-h-72 overflow-y-auto p-2">
+                  <SuggestedStreams />
+                </div>
+              </details>
+            </div>
             <div className="relative aspect-video w-full overflow-hidden rounded-md bg-black">
               <StreamPlayer />
             </div>
