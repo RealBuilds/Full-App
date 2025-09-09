@@ -13,7 +13,7 @@ const messages = [
 ];
 
 export default function Messages() {
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(null);
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -25,14 +25,14 @@ export default function Messages() {
   return (
     <div className="min-h-[calc(100vh-80px)] w-full overflow-x-hidden bg-white flex flex-col md:flex-row">
       {/* Sidebar (full width on mobile, fixed width on md+) */}
-      <div className="w-full md:w-72 bg-white border-b md:border-b-0 md:border-r p-4 flex flex-col md:h-[calc(100vh-80px)]">
-        <h2 className="text-lg font-bold mb-4 text-blue-600">Chats</h2>
-        <div className="space-y-2 flex-1 overflow-y-auto max-h-56 md:max-h-none">
+      <div className="w-full md:w-80 bg-white border-b md:border-b-0 md:border-r p-3 sm:p-4 flex flex-col md:h-[calc(100vh-80px)]">
+        <h2 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-blue-600">Messages</h2>
+        <div className="space-y-1.5 sm:space-y-2 flex-1 overflow-y-auto max-h-64 md:max-h-none">
           {conversations.map((c, i) => (
-            <button key={i} onClick={() => setSelected(i)} className={`flex items-center gap-3 w-full p-2 rounded-lg transition-colors ${selected === i ? 'bg-blue-50' : 'hover:bg-purple-50'}`}>
-              <img src={c.avatar} alt={c.user} className="w-10 h-10 rounded-full object-cover" />
+            <button key={i} onClick={() => setSelected(i)} className={`flex items-center gap-2 sm:gap-3 w-full p-2 rounded-lg transition-colors ${selected === i ? 'bg-blue-50' : 'hover:bg-purple-50'}`}>
+              <img src={c.avatar} alt={c.user} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover" />
               <div className="flex-1 text-left">
-                <div className="font-semibold text-slate-900">{c.user}</div>
+                <div className="font-semibold text-slate-900 text-sm sm:text-base">{c.user}</div>
                 <div className="text-xs text-slate-500 truncate">{c.lastMessage}</div>
               </div>
               <div className="text-xs text-slate-400">{c.time}</div>
@@ -40,28 +40,40 @@ export default function Messages() {
           ))}
         </div>
       </div>
-      {/* Main Chat (stacks under sidebar on mobile) */}
+      {/* Main area: on mobile show either placeholder (no chat selected) or the chat; on desktop show panel regardless */}
       <div className="flex-1 flex flex-col bg-slate-50 md:h-[calc(100vh-80px)]">
-        {/* Chat Header */}
-        <div className="border-b p-4 bg-white flex items-center gap-3 flex-shrink-0">
-          <img src={conversations[selected].avatar} alt={conversations[selected].user} className="w-10 h-10 rounded-full object-cover" />
-          <div className="font-semibold text-slate-900">{conversations[selected].user}</div>
-        </div>
-        {/* Messages Area */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
-          {messages.map((m, i) => (
-            <div key={i} className={`flex ${m.fromMe ? 'justify-end' : 'justify-start'}`}>
-              <div className={`px-4 py-2 rounded-2xl max-w-xs ${m.fromMe ? 'bg-blue-500 text-white' : 'bg-white text-slate-900 border'}`}>{m.text}</div>
-              <span className="text-xs text-slate-400 ml-2 self-end">{m.time}</span>
+        {selected === null ? (
+          <div className="hidden md:flex flex-1 items-center justify-center text-slate-400">
+            <div className="text-center px-4">
+              <div className="text-lg font-semibold mb-1">Select a conversation</div>
+              <div className="text-sm">Choose a chat from the list to start messaging</div>
             </div>
-          ))}
-          <div ref={messagesEndRef} />
-        </div>
-        {/* Typing Bar */}
-        <form className="p-3 sm:p-4 bg-white border-t flex gap-2 flex-shrink-0">
-          <input type="text" placeholder="Type a message..." className="flex-1 rounded-full border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-full font-semibold hover:bg-purple-600">Send</button>
-        </form>
+          </div>
+        ) : (
+          <>
+            {/* Chat Header */}
+            <div className="border-b p-3 sm:p-4 bg-white flex items-center gap-3 flex-shrink-0">
+              <button className="md:hidden text-sm px-2 py-1 rounded border" onClick={() => setSelected(null)}>Back</button>
+              <img src={conversations[selected].avatar} alt={conversations[selected].user} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover" />
+              <div className="font-semibold text-slate-900 text-sm sm:text-base">{conversations[selected].user}</div>
+            </div>
+            {/* Messages Area */}
+            <div className="flex-1 overflow-y-auto p-3 sm:p-6 space-y-3 sm:space-y-4">
+              {messages.map((m, i) => (
+                <div key={i} className={`flex ${m.fromMe ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`px-3 py-2 sm:px-4 rounded-2xl max-w-[75%] sm:max-w-xs ${m.fromMe ? 'bg-blue-500 text-white' : 'bg-white text-slate-900 border'}`}>{m.text}</div>
+                  <span className="text-[10px] sm:text-xs text-slate-400 ml-2 self-end">{m.time}</span>
+                </div>
+              ))}
+              <div ref={messagesEndRef} />
+            </div>
+            {/* Typing Bar */}
+            <form className="p-3 sm:p-4 bg-white border-t flex gap-2 flex-shrink-0">
+              <input type="text" placeholder="Type a message..." className="flex-1 rounded-full border px-3 sm:px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+              <button type="submit" className="bg-blue-500 text-white px-3 sm:px-4 py-2 rounded-full font-semibold hover:bg-purple-600 text-sm">Send</button>
+            </form>
+          </>
+        )}
       </div>
     </div>
   );
