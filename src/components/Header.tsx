@@ -125,6 +125,7 @@ export const Header = () => {
                       key={item.to}
                       to={item.to}
                       end={item.exact}
+                      onClick={() => setIsMenuOpen(false)}
                       className={({ isActive }) =>
                         `flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50 ${
                           isActive ? 'bg-blue-100' : ''
@@ -137,13 +138,13 @@ export const Header = () => {
                   );
                 })}
                 <div className="pt-2 border-t border-slate-200" />
-                <NavLink to="/profile" className="flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
+                <NavLink to="/profile" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
                   Profile
                 </NavLink>
-                <NavLink to="/messages" className="flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
+                <NavLink to="/messages" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
                   Messages
                 </NavLink>
-                <NavLink to="/notifications" className="flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
+                <NavLink to="/notifications" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
                   Notifications
                 </NavLink>
               </div>
