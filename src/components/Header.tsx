@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Search, Bell, MessageCircle, Trophy, Target, Zap, Play } from "lucide-react";
+import { Menu, X, Search, Bell, MessageCircle, Trophy, Target, Zap, Play, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NavLink } from 'react-router-dom';
 
@@ -71,27 +71,22 @@ export const Header = () => {
             </div>
           </div>
 
-          {/* Desktop Actions */}
+          {/* Desktop Actions: Profile with dropdown for Messages & Notifications */}
           <div className="hidden md:flex items-center space-x-3">
-            <NavLink to="/notifications">
-              <Button variant="ghost" size="sm" className="relative p-3 rounded-full hover:bg-slate-100">
-                <Bell className="w-5 h-5" />
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">3</span>
-              </Button>
-            </NavLink>
-            <NavLink to="/messages">
-              <Button variant="ghost" size="sm" className="relative p-3 rounded-full hover:bg-slate-100">
-                <MessageCircle className="w-5 h-5" />
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full text-xs text-white flex items-center justify-center">7</span>
-              </Button>
-            </NavLink>
-            <NavLink to="/profile">
-              <img
-                src="/profile-sofia-garcia.jpg"
-                alt="Ral Nwogbo"
-                className="w-10 h-10 rounded-full object-cover border-2 border-blue-500 cursor-pointer hover:scale-105 transition-transform"
-              />
-            </NavLink>
+            <div className="relative group">
+              <NavLink to="/profile" className="flex items-center gap-2">
+                <img
+                  src="/profile-sofia-garcia.jpg"
+                  alt="Profile"
+                  className="w-10 h-10 rounded-full object-cover border-2 border-blue-500 cursor-pointer hover:scale-105 transition-transform"
+                />
+                <ChevronDown className="w-4 h-4 text-slate-600" />
+              </NavLink>
+              <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-50">
+                <NavLink to="/messages" className="block px-4 py-2 text-sm hover:bg-slate-50">Messages</NavLink>
+                <NavLink to="/notifications" className="block px-4 py-2 text-sm hover:bg-slate-50">Notifications</NavLink>
+              </div>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -136,6 +131,16 @@ export const Header = () => {
                     </NavLink>
                   );
                 })}
+                <div className="pt-2 border-t border-slate-200" />
+                <NavLink to="/profile" className="flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
+                  Profile
+                </NavLink>
+                <NavLink to="/messages" className="flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
+                  Messages
+                </NavLink>
+                <NavLink to="/notifications" className="flex items-center gap-2 text-slate-700 hover:text-slate-900 font-medium py-3 px-4 rounded-lg hover:bg-slate-50">
+                  Notifications
+                </NavLink>
               </div>
             </div>
           </div>

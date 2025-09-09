@@ -8,17 +8,10 @@ import { Eye, Star } from 'lucide-react';
 export default function Streams() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white flex flex-col">
-      {/* Sticky top tabs - always visible */}
+      {/* Sticky page title */}
       <div className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b">
         <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6 py-2">
-          <div className="flex items-center justify-between gap-2">
-            <h1 className="text-base sm:text-lg font-semibold truncate">Live Stream</h1>
-            <nav className="hidden sm:flex items-center gap-1 sm:gap-2">
-              <Link to="/Profile" className="px-3 py-1.5 text-sm rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring">Profile</Link>
-              <Link to="/Messages" className="px-3 py-1.5 text-sm rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring">DM</Link>
-              <Link to="/Notifications" className="px-3 py-1.5 text-sm rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring">Notifications</Link>
-            </nav>
-          </div>
+          <h1 className="text-base sm:text-lg font-semibold truncate">Live Stream</h1>
         </div>
       </div>
 
@@ -104,14 +97,7 @@ export default function Streams() {
           </aside>
         </div>
       </div>
-      {/* Bottom tab bar for mobile */}
-      <nav className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t shadow-sm">
-        <div className="mx-auto max-w-7xl px-2 py-1 grid grid-cols-3 gap-1 text-sm">
-          <Link to="/Profile" className="flex items-center justify-center py-2 rounded-md hover:bg-gray-100">Profile</Link>
-          <Link to="/Messages" className="flex items-center justify-center py-2 rounded-md hover:bg-gray-100">DM</Link>
-          <Link to="/Notifications" className="flex items-center justify-center py-2 rounded-md hover:bg-gray-100">Notifications</Link>
-        </div>
-      </nav>
+      {/* No page-specific mobile tabs; navigation lives in global header menu */}
     </div>
   );
 }
