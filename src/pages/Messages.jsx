@@ -24,8 +24,8 @@ export default function Messages() {
 
   return (
     <div className="min-h-[calc(100vh-80px)] w-full overflow-x-hidden bg-white flex flex-col md:flex-row">
-      {/* Sidebar (full width on mobile, fixed width on md+) */}
-      <div className="w-full md:w-80 bg-white border-b md:border-b-0 md:border-r p-3 sm:p-4 flex flex-col md:h-[calc(100vh-80px)]">
+      {/* Sidebar: on mobile hide when a chat is selected; visible again with Back */}
+      <div className={`${selected === null ? 'block' : 'hidden'} md:block w-full md:w-80 bg-white border-b md:border-b-0 md:border-r p-3 sm:p-4 flex flex-col md:h-[calc(100vh-80px)]`}>
         <h2 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-blue-600">Messages</h2>
         <div className="space-y-1.5 sm:space-y-2 flex-1 overflow-y-auto max-h-64 md:max-h-none">
           {conversations.map((c, i) => (
@@ -40,7 +40,7 @@ export default function Messages() {
           ))}
         </div>
       </div>
-      {/* Main area: on mobile show either placeholder (no chat selected) or the chat; on desktop show panel regardless */}
+      {/* Main area: on mobile show either placeholder (no chat) or full-screen chat */}
       <div className="flex-1 flex flex-col bg-slate-50 md:h-[calc(100vh-80px)]">
         {selected === null ? (
           <div className="hidden md:flex flex-1 items-center justify-center text-slate-400">
