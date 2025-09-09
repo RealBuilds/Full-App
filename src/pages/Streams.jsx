@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SuggestedStreams from '../components/SuggestedStreams';
 import StreamPlayer from '../components/VideoPlayerArea';
 import ChatBox from '../components/ChatBox';
@@ -12,16 +13,16 @@ export default function Streams() {
         <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6 py-2">
           <div className="flex items-center justify-between gap-2">
             <h1 className="text-base sm:text-lg font-semibold truncate">Live Stream</h1>
-            <nav className="flex items-center gap-1 sm:gap-2">
-              <button className="px-3 py-1.5 text-sm rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring">Profile</button>
-              <button className="px-3 py-1.5 text-sm rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring">DM</button>
-              <button className="px-3 py-1.5 text-sm rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring">Notifications</button>
+            <nav className="hidden sm:flex items-center gap-1 sm:gap-2">
+              <Link to="/Profile" className="px-3 py-1.5 text-sm rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring">Profile</Link>
+              <Link to="/Messages" className="px-3 py-1.5 text-sm rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring">DM</Link>
+              <Link to="/Notifications" className="px-3 py-1.5 text-sm rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring">Notifications</Link>
             </nav>
           </div>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl w-full px-3 sm:px-4 lg:px-6 py-3 sm:py-4 flex-1">
+      <div className="mx-auto max-w-7xl w-full px-3 sm:px-4 lg:px-6 py-3 sm:py-4 flex-1 pb-16 sm:pb-0">
         {/* Layout: stack on mobile, side-by-side on md+ */}
         <div className="flex flex-col md:flex-row md:items-stretch gap-3 sm:gap-4">
           {/* Optional left sidebar - hide on small screens */}
@@ -103,6 +104,14 @@ export default function Streams() {
           </aside>
         </div>
       </div>
+      {/* Bottom tab bar for mobile */}
+      <nav className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t shadow-sm">
+        <div className="mx-auto max-w-7xl px-2 py-1 grid grid-cols-3 gap-1 text-sm">
+          <Link to="/Profile" className="flex items-center justify-center py-2 rounded-md hover:bg-gray-100">Profile</Link>
+          <Link to="/Messages" className="flex items-center justify-center py-2 rounded-md hover:bg-gray-100">DM</Link>
+          <Link to="/Notifications" className="flex items-center justify-center py-2 rounded-md hover:bg-gray-100">Notifications</Link>
+        </div>
+      </nav>
     </div>
   );
 }
