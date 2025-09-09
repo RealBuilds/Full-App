@@ -23,9 +23,9 @@ export default function Messages() {
   }, [selected]);
 
   return (
-    <div className="min-h-[calc(100vh-80px)] w-full overflow-x-hidden bg-white flex flex-col md:grid md:grid-cols-[20rem,1fr] md:gap-0">
+    <div className={`min-h-[calc(100vh-80px)] w-full overflow-x-hidden bg-white flex flex-col ${selected === null ? 'md:grid md:grid-cols-[20rem,1fr]' : ''} md:gap-0`}>
       {/* Sidebar: on mobile hide when a chat is selected; visible again with Back */}
-      <div className={`${selected === null ? 'block' : 'hidden'} md:block w-full md:w-80 bg-white border-b md:border-b-0 md:border-r p-3 sm:p-4 flex flex-col h-[calc(100vh-80px)] md:h-[calc(100vh-80px)] md:min-h-0 overflow-hidden`}>
+      <div className={`${selected === null ? 'block md:block' : 'hidden md:hidden'} w-full md:w-80 bg-white border-b md:border-b-0 md:border-r p-3 sm:p-4 flex flex-col h-[calc(100vh-80px)] md:h-[calc(100vh-80px)] md:min-h-0 overflow-hidden`}>
         <h2 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-blue-600">Messages</h2>
         <div className={`${selected === null ? 'max-h-64' : 'max-h-0'} md:max-h-none space-y-1.5 sm:space-y-2 flex-1 overflow-y-auto md:min-h-0`}>
           {conversations.map((c, i) => (
@@ -53,7 +53,7 @@ export default function Messages() {
           <>
             {/* Chat Header */}
             <div className="border-b p-3 sm:p-4 bg-white flex items-center gap-3 flex-shrink-0">
-              <button className="md:hidden -ml-1 px-1" onClick={() => setSelected(null)} aria-label="Back">
+              <button className="-ml-1 px-1" onClick={() => setSelected(null)} aria-label="Back">
                 <span className="text-blue-600 text-2xl leading-none">&lt;</span>
               </button>
               <img src={conversations[selected].avatar} alt={conversations[selected].user} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover" />
