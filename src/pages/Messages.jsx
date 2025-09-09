@@ -25,9 +25,9 @@ export default function Messages() {
   return (
     <div className="min-h-[calc(100vh-80px)] w-full overflow-x-hidden bg-white flex flex-col md:grid md:grid-cols-[20rem,1fr] md:gap-0">
       {/* Sidebar: on mobile hide when a chat is selected; visible again with Back */}
-      <div className={`${selected === null ? 'block' : 'hidden'} md:block w-full md:w-80 bg-white border-b md:border-b-0 md:border-r p-3 sm:p-4 flex flex-col md:h-[calc(100vh-80px)] md:min-h-0`}>
+      <div className={`${selected === null ? 'block' : 'hidden'} md:block w-full md:w-80 bg-white border-b md:border-b-0 md:border-r p-3 sm:p-4 flex flex-col h-[calc(100vh-80px)] md:h-[calc(100vh-80px)] md:min-h-0 overflow-hidden`}>
         <h2 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 text-blue-600">Messages</h2>
-        <div className="space-y-1.5 sm:space-y-2 flex-1 overflow-y-auto max-h-64 md:max-h-none md:min-h-0">
+        <div className={`${selected === null ? 'max-h-64' : 'max-h-0'} md:max-h-none space-y-1.5 sm:space-y-2 flex-1 overflow-y-auto md:min-h-0`}>
           {conversations.map((c, i) => (
             <button key={i} onClick={() => setSelected(i)} className={`flex items-center gap-2 sm:gap-3 w-full p-2 rounded-lg transition-colors ${selected === i ? 'bg-blue-50' : 'hover:bg-purple-50'}`}>
               <img src={c.avatar} alt={c.user} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover" />
@@ -41,7 +41,7 @@ export default function Messages() {
         </div>
       </div>
       {/* Main area: on mobile show either placeholder (no chat) or full-screen chat */}
-      <div className="flex-1 flex flex-col bg-slate-50 md:h-[calc(100vh-80px)] md:min-h-0">
+      <div className={`flex-1 flex flex-col bg-slate-50 h-[calc(100vh-80px)] md:h-[calc(100vh-80px)] md:min-h-0 overflow-hidden`}>
         {selected === null ? (
           <div className="hidden md:flex flex-1 items-center justify-center text-slate-400">
             <div className="text-center px-4">
