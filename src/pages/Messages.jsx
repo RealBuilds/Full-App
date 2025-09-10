@@ -40,27 +40,27 @@ export default function Messages() {
           ))}
         </div>
       </div>
-      {/* Main area: on mobile show either placeholder (no chat) or full-screen chat */}
-      <div className={`flex-1 flex flex-col bg-slate-50 h-[calc(100vh-80px)] md:h-[calc(100vh-80px)] md:min-h-0 overflow-hidden`}>
+      {/* Main area: fixed-height pane with internal scroll window for messages */}
+      <div className={`flex-1 bg-slate-50 h-[calc(100vh-80px)] md:h-[calc(100vh-80px)] md:min-h-0 overflow-hidden p-2 sm:p-3`}>
         {selected === null ? (
-          <div className="hidden md:flex flex-1 items-center justify-center text-slate-400">
+          <div className="hidden md:flex h-full items-center justify-center text-slate-400">
             <div className="text-center px-4">
               <div className="text-lg font-semibold mb-1">Select a conversation</div>
               <div className="text-sm">Choose a chat from the list to start messaging</div>
             </div>
           </div>
         ) : (
-          <>
+          <div className="grid grid-rows-[auto,1fr,auto] h-full rounded-lg border bg-white">
             {/* Chat Header */}
-            <div className="border-b p-3 sm:p-4 bg-white flex items-center gap-3 flex-shrink-0">
+            <div className="row-start-1 row-end-2 border-b px-3 sm:px-4 py-2 sm:py-3 bg-white flex items-center gap-3">
               <button className="-ml-1 px-1" onClick={() => setSelected(null)} aria-label="Back">
                 <span className="text-blue-600 text-2xl leading-none">&lt;</span>
               </button>
               <img src={conversations[selected].avatar} alt={conversations[selected].user} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover" />
               <div className="font-semibold text-slate-900 text-sm sm:text-base">{conversations[selected].user}</div>
             </div>
-            {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto p-3 sm:p-6 space-y-3 sm:space-y-4">
+            {/* Messages scroll window */}
+            <div className="row-start-2 row-end-3 overflow-y-auto px-3 sm:px-6 py-3 sm:py-4 space-y-3 sm:space-y-4">
               {messages.map((m, i) => (
                 <div key={i} className={`flex ${m.fromMe ? 'justify-end' : 'justify-start'}`}>
                   <div className={`px-3 py-2 sm:px-4 rounded-2xl max-w-[75%] sm:max-w-xs ${m.fromMe ? 'bg-blue-500 text-white' : 'bg-white text-slate-900 border'}`}>{m.text}</div>
@@ -69,12 +69,12 @@ export default function Messages() {
               ))}
               <div ref={messagesEndRef} />
             </div>
-            {/* Typing Bar */}
-            <form className="p-3 sm:p-4 bg-white border-t flex gap-2 flex-shrink-0">
+            {/* Composer fixed within pane */}
+            <form className="row-start-3 row-end-4 px-3 sm:px-4 py-2 sm:py-3 bg-white border-t flex gap-2">
               <input type="text" placeholder="Type a message..." className="flex-1 rounded-full border px-3 sm:px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
               <button type="submit" className="bg-blue-500 text-white px-3 sm:px-4 py-2 rounded-full font-semibold hover:bg-purple-600 text-sm">Send</button>
             </form>
-          </>
+          </div>
         )}
       </div>
     </div>
